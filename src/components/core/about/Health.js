@@ -6,7 +6,7 @@ import photo4 from '../../../asset/health4.png'
 
 const Health = () => {
   return (
-    <div className=' w-full pt-[60px] border-y-[7px] border-[#e12020] pb-8'>
+    <div className='bg-white w-full pt-[60px] border-y-[7px] border-[#e12020] pb-8'>
        
        <div className='md:w-8/12 ml-[8%]'>
         <h1 className='text-[20px] py-3 font-semibold text-[#384081]'>80% OF STAYING FIT IS <span className='text-[#f15f5f] '>FOOD</span></h1>

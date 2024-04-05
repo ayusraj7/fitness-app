@@ -1,6 +1,9 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import img1 from '../../../asset/supplement.jpg'
 import ProductCard from './ProductCard'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import Loading from '../../../pages/Loading'
 const product=[
     {
         img:img1,
@@ -41,6 +44,28 @@ const product=[
 ]
 
 const Products = () => {
+    const[products,setProductData]=useState('');
+
+    const fetchProducts=async()=>{
+        try{                  
+                const user=await axios.get('http://localhost:4000/api/products');
+                if(!user.data.success)
+                {
+                    throw new Error(user.data.message);
+                }
+                setProductData(user.data.data);
+
+        }catch(error)
+        {
+            console.log('error',error);
+            toast.error(`Products can't be fetched`);
+        }
+}
+
+useEffect(()=>{
+fetchProducts();
+},[])
+console.log('products',products);
   return (
     <div> 
         <div className='bg-[#0a0a0a] h-auto pb-8'>
@@ -56,9 +81,11 @@ const Products = () => {
                 {/* 2nd div */}
                 <div className='flex gap-5 flex-wrap justify-center lg:justify-start '>
                     {
-                        product.map((element,index)=>{
-                            return (<ProductCard element={element} key={index}/>)
-                        })
+                         
+                            products.length===0?<Loading text={'Products'}/>: products.map((element,index)=>(
+                                 <ProductCard element={element} key={index} />
+                             ))
+                         
                     }
                 </div>
 

@@ -5,14 +5,18 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setSignupData } from '../../../reducer/slices/userSlice';
+import {useSelector} from 'react-redux'
+import { setSignupData,setLoading } from '../../../reducer/slices/userSlice';
 
 const SignupForm = () => {
     const [showpassword,setShowPassword]=useState(false)
     const [confirmpassword,setConfirmPassword]=useState(false)
-    const [accountType,setType]=useState('member');  
+    const [accountType,setType]=useState('member');
+      
    const navigate=useNavigate();
    const dispatch=useDispatch();
+   const {loading}=useSelector(state=>state.user)
+   
 
     const [formData,setFormData] =useState({
         name:"",
@@ -39,6 +43,7 @@ const SignupForm = () => {
             
             e.preventDefault();
             const toastId=toast.loading('loading');
+            dispatch(setLoading(true));
             if(password !== confirmPassword)
             {
                 toast.error("Passwords Do Not Match");
@@ -48,7 +53,7 @@ const SignupForm = () => {
                     const data={...formData,accountType};                    
                     dispatch(setSignupData(data));
                     
-                    const user=await axios.post('http://localhost:4000/api/v1/send-otp',{email});
+                    const user=await axios.post('http://localhost:4000/api/send-otp',{email});
 
                     if(!user.data.success)
                     {
@@ -65,6 +70,7 @@ const SignupForm = () => {
                 toast.error(error.response.data.message);
             }
             toast.dismiss(toastId);
+        dispatch(setLoading(false));
             
     }
 
@@ -89,15 +95,15 @@ const SignupForm = () => {
             <div className='text-2xl sm:text-4xl text-gray-600  font-inter'>SignUp
                 <div className='w-[35px] bg-violet-700 h-1'></div>
             </div>
-            <div className='flex border-2 border-slate-500 text-gray-300 bg-slate-500  gap-x-1 my-5 rounded-full '>
-                <label htmlFor="member" className={`text-[16px] sm:text-[18px] border-slate-500 border-2   px-2 rounded-full ${accountType==='member' && 'bg-slate-600 rounded-full'}`} onClick={(e)=>changetab('member')}>Member
+            <div className='border-2 h-11 flex items-center border-slate-500 text-gray-300 bg-slate-500  gap-x-1 my-5 rounded-full '>
+                <label htmlFor="member" className={`text-[16px] sm:text-[18px] border-slate-500 border-2 flex items-center h-full  px-2 rounded-full ${accountType==='member' && 'bg-slate-600 rounded-full'}`} onClick={(e)=>changetab('member')}>Member
                 <input type="radio" name="member" id="member" className='[all:unset]'/></label>
-                <label htmlFor="trainer" className={`text-[16px] sm:text-[18px] border-l border-2 border-slate-500 rounded-full bg-slate-500 px-2 ${accountType==='trainer' && 'bg-slate-600 rounded-full'}`} onClick={(e)=>changetab('trainer')}>Trainer
+                <label htmlFor="trainer" className={`text-[16px] sm:text-[18px] border-l border-2 h-full flex items-center border-slate-500 rounded-full bg-slate-500 px-2 ${accountType==='trainer' && 'bg-slate-600 rounded-full'}`} onClick={(e)=>changetab('trainer')}>Trainer
                 <input type="radio" name="trainer" id="trainer" className='[all:unset]' /></label>
                 
             </div>
         </div>
-        <form action="" className='w-full flex flex-col gap-3 ' onSubmit={handleSubmit}>
+        <form  className='w-full flex flex-col gap-3 mt-6' onSubmit={handleSubmit} >
             <div className='flex flex-col gap-3 w-full '>
                 <div className='flex sm:flex-row flex-col gap-5 w-full'>
                     <div className='border-b-2 sm:w-1/2 flex flex-col'>
@@ -145,7 +151,7 @@ const SignupForm = () => {
                 </div>
 
             </div>
-            <button className='bg-violet-700 rounded-md p-3 text-white font-medium transition-all duration-200 hover:bg-violet-600 hover:text-xl mt-2 ' >Sign Up</button>
+            <button disabled={loading?true:false} className='bg-violet-700 rounded-md p-3 text-white font-medium transition-all duration-200 hover:bg-violet-600 hover:text-xl mt-2 ' >{loading?'Loading':'SignUp'}</button>
         </form>
     </div>
   )

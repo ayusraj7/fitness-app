@@ -1,18 +1,30 @@
 import './index.css'
 import Navbar from './components/common/Navbar';
 import Auth from './pages/Auth'
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route, Navigate, useNavigate} from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-
-import Program from './components/core/programs/Program';
+import Program from './pages/Program';
 import Shop from './pages/Shop'
 import SendOTP from './pages/SendOTP';
+import Blogs from './pages/Blogs'
+import Modal from './components/common/Modal'
+import Error from './pages/Error'
+import SingleProduct from './pages/SingleProduct'
+
 import { useDispatch } from 'react-redux';
 import { setSignupData } from './reducer/slices/userSlice';
+import SingleBlog from './pages/SingleBlog';
+
 function App() {
-  const data='how are you';
-  useDispatch(setSignupData(data));
+  const navigate=useNavigate();
+  
+  
+  const data={
+    "text1":"You are not logged in",
+    "text2":"Please Login to add To Cart",
+   
+  }
   return (
     <div className='w-screen  flex-col relative p-0 m-0'>
       <Navbar/>
@@ -25,7 +37,13 @@ function App() {
         <Route path='/shop' element={<Shop/>}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/send-otp' element={<SendOTP/>}></Route>
+        <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path='/blog/:id' element={<SingleBlog/>}></Route>
+        <Route path='/product/:id' element={<SingleProduct/>}></Route>
+        <Route path='/modal' element={<Modal data={data}  />}/>
+        <Route path='*' element={<Error/>}></Route>
       </Routes>
+      
      
       
       

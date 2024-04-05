@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../common/Button'
+import ClassesCard from './ClassesCard'
 
 const Timing = () => {
   return (
@@ -45,6 +46,7 @@ const Timing = () => {
                  <p className='text-green-600 text-xl mb-1'><span className='text-xl pr-3 line-through text-gray-600'>$5000</span> $3000</p>
                  <Button linkto={'/shop'} text={'Book now'} css={'bg-amber-300 text-slate-100 hover:scale-110 hover:bg-amber-200 text-slate-400'} wi={'w-fit'}/>
              </div> 
+             <ClassesCard/>
          </div>
     </div>
   )

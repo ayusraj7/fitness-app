@@ -1,11 +1,13 @@
 import React from 'react'
-import programimg from '../../../asset/programimg.webp'
-import cardio from '../../../asset/cardio.avif'
-import training2 from '../../../asset/training2.jpg'
-import strength from '../../../asset/training.jpg'
-import weightloss from '../../../asset/weightloss.jpg'
-import kickboxing from '../../../asset/kickboxing.jpg'
-import Timing from './Timing'
+import programimg from '../asset/programimg.webp'
+import cardio from '../asset/cardio.avif'
+import training2 from '../asset/training2.jpg'
+import strength from '../asset/training.jpg'
+import weightloss from '../asset/weightloss.jpg'
+import kickboxing from '../asset/kickboxing.jpg'
+import Timing from '../components/core/programs/Timing'
+import Footer from '../components/common/Footer'
+import Modal from '../components/common/Modal'
 const Program = () => {
   return (
     <div className=' flex gap-10 flex-col bg-gray-900 text-white pb-11'>
@@ -41,6 +43,7 @@ const Program = () => {
             </div>
         </div>
         <Timing/>
+        <Footer/>
     </div>
   )
 }

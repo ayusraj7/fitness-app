@@ -25,7 +25,7 @@ const SendOTP = () => {
       try{
         const toastId=toast.loading('loading');
         const email=signupData.email;
-        const user=await axios.post('http://localhost:4000/api/v1/send-otp',{email})
+        const user=await axios.post('http://localhost:4000/api/send-otp',{email})
         console.log('user',user);
         toast.dismiss(toastId);
         toast.success(user.data.message);
@@ -40,7 +40,7 @@ const SendOTP = () => {
       const toastId=toast.loading('Loading');
       try{
         
-        const user=await axios.post('http://localhost:4000/api/v1/signup',{
+        const user=await axios.post('http://localhost:4000/api/signup',{
          name:signupData.name,
          mobileno:signupData.mobileno,
          accountType:signupData.accountType,
@@ -96,7 +96,7 @@ const SendOTP = () => {
             <div className='flex justify-between px-2'>
                 <div className='flex gap-1 items-center'>
                 <p className='text-blue-500 text-[22px]'><TiArrowBackOutline/></p>
-                    <Link to='/login'><p className='hover:text-yellow-400'>Back To Signup</p></Link>
+                    <Link to='/signup'><p className='hover:text-yellow-400'>Back To Signup</p></Link>
                 </div>
                 <div className='flex gap-1 items-center'>
                     <p className='text-blue-500 text-[22px]'><GiBackwardTime/></p>

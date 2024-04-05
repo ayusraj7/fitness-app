@@ -6,13 +6,12 @@ import Founder from '../components/core/home/Founder'
 import UpperPart from '../components/core/home/UpperPart'
 const Home = () => {
   return (
-    <div className='relative'>
+    <div className='relative bg-[#0a0a0a]'>
         <UpperPart/>
         <Workout/>
         <Founder/>
         <Motivation/>  
         <Footer/> 
-        
     </div>
   )
 }

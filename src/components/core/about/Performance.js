@@ -7,7 +7,7 @@ import photo4 from '../../../asset/health4.png'
 
 const Performance = () => {
   return (
-    <div className=' w-full pt-[5px] border-y-[7px] border-[#e12020] pb-8'>
+    <div className='bg-white w-full pt-[5px] border-y-[7px] border-[#e12020] pb-8'>
        <div className='mx-[8%]'>
             <p className='text-[20px] py-2 font-semibold text-[#384081]'>EVERY <span className='text-red-500'>BODY</span> IS DIFFERENT</p>
             <div  className='h-1 ml-1 w-[100px] bg-[#f60000] '></div>

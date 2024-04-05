@@ -4,7 +4,7 @@ import Button from './Button'
 const ContactForm = () => {
   return (
     <>
-        <form action="" className=' px-7 md:px-[50px] py-4 md:py-11 flex flex-col gap-2 '>
+        <form action="" className=' px-7 md:px-[50px] py-4 md:py-11 flex flex-col gap-2  '>
             <label>
                 <p className="mb-1 text-[1rem] font-semibold leading-[1.375rem] text-richblack-5">
                 First Name <sup className="text-pink-200">*</sup>

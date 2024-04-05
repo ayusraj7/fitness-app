@@ -1,13 +1,13 @@
 import React from 'react'
 import { FaInstagram,FaYoutube,FaFacebookF,FaTwitter } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
-import logo from '../../asset/target.png'
 import { CgGym } from 'react-icons/cg';
+
 
 
 const Footer = () => {
   return (
-    <div className='h-auto lg:h-[500px] text-white bg-[#0a0a0a] '>
+    <div className='h-auto lg:h-[500px] text-white bg-transparent  '>
         <div className='h-full lg:pb-0 pb-6  pt-12 flex justify-between  flex-wrap w-[calc(100vw-17vw)] mx-auto gap-8 sm:gap-0'>
             <div className='sm:w-[300px] flex flex-col gap-7 sm:items-start items-center'>
                 <Link to='/'>
@@ -23,10 +23,10 @@ const Footer = () => {
                 <div className='flex flex-col gap-2 sm:gap-4'>
                     <h2 className='text-[#ffffff] text-2xl font-semibold'>Contact Us</h2>
                     <div className='flex gap-4'>
-                        <Link><FaInstagram size={24} /></Link>
-                        <Link><FaYoutube size={24} /></Link>
-                        <Link><FaFacebookF size={24} /></Link>
-                        <Link><FaTwitter size={24} /></Link>
+                        <Link><FaInstagram size={24} className='hover:text-orange-600' /></Link>
+                        <Link><FaYoutube size={24} className='hover:text-orange-600' /></Link>
+                        <Link><FaFacebookF size={24} className='hover:text-orange-600'/></Link>
+                        <Link><FaTwitter size={24} className='hover:text-orange-600'/></Link>
                     </div>
                     <p className='text-[#b2b2b2] bg-transparen w-[170px] text-[15px]'>
                         The fitness

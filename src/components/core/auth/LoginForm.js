@@ -7,10 +7,13 @@ import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../reducer/slices/userSlice'
+import { useSelector} from 'react-redux'
+import {setLoading,setUserData} from '../../../reducer/slices/userSlice'
 
 const LoginForm = () => {
     const navigate=useNavigate();
     const [showpassword,setShowPassword]=useState(false)
+    const {loading}=useSelector(state=>state.user);
     const[formData,setFormData]=useState({
         email:"",
         password:""
@@ -23,22 +26,30 @@ const LoginForm = () => {
             [event.target.name]:event.target.value
         }))
     }
+
+    
     
 
         const handleSubmit= async(e) =>{
             e.preventDefault();
+            dispatch(setLoading(true));
             const toastId=toast.loading('loading');
             try{
-                    console.log('formDAta',formData);
-                    const user=await axios.post('http://localhost:4000/api/v1/login',{
+                    
+                    const user=await axios.post('http://localhost:4000/api/login',{
                         email,
                         password
                     });
                     const token=user.data.token;
-                    console.log('token',token);
+                    const userData=user.data.user;
+                    console.log('user',userData);
+
+                    
                     localStorage.setItem('token',JSON.stringify(token));
+                    localStorage.setItem('userData',JSON.stringify(userData));
                     dispatch(setToken(token));
-                    console.log('user',user)
+                    dispatch(setUserData(userData));
+                    
                     if(!user.data.success)
                     {
                        
@@ -46,21 +57,20 @@ const LoginForm = () => {
                     }
                     
                     toast.success(user.data.message);
-                    console.log('user',user);
-                    navigate('/about');
+                   
+                    navigate('/dashboard');
 
             }catch(error)
             {   
                 console.log('error',error);
                 toast.error(error.response.data.message);
             }
+            dispatch(setLoading(false));
             toast.dismiss(toastId);
             
         }
 
     const changePass=()=>{
-        console.log('show password',showpassword)
-        console.log('change ',!showpassword)
         setShowPassword(!showpassword)
     }
   return (
@@ -89,7 +99,7 @@ const LoginForm = () => {
             </div>
             <p className='text-violet-600 text-md'>Forgot Password?</p>
 
-            <button className='bg-violet-700 cursor-pointer rounded-md p-3 text-white font-medium transition-all duration-200 hover:bg-violet-600 hover:text-xl' >Login</button>
+            <button disabled={loading?true:false} className='bg-violet-700 cursor-pointer rounded-md p-3 text-white font-medium transition-all duration-200 hover:bg-violet-600 hover:text-xl' >{loading?'Loading':'Login'}</button>
         </form>
         
     </div>
