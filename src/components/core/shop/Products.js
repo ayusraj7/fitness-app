@@ -67,8 +67,8 @@ fetchProducts();
 },[])
 console.log('products',products);
   return (
-    <div> 
-        <div className='bg-[#0a0a0a] h-auto pb-8'>
+    <div > 
+        <div className='bg-[#0a0a0a] h-auto pb-8 relative'>
             <div className='flex w-11/12  lg:w-10/12 gap-11 max-w-[1024px] mx-auto flex-col '>
                 {/* 1st div  */}
                 <div className='flex flex-col gap-3 mt-5'>

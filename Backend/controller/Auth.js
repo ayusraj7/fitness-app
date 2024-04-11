@@ -55,7 +55,7 @@ exports.signup = async (req, res) => {
       const details = await AdditionalDetails.create({
         img:`https://api.dicebear.com/5.x/initials/svg?seed=${name}`,
         age:null,
-        preference:null,
+        about:null,
         gender:null,
       })
       const user = await User.create({

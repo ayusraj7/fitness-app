@@ -2,18 +2,28 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Loading from '../../../pages/Loading'
 import toast from 'react-hot-toast'
+import{useLocation,useSearchParams,useParams} from 'react-router-dom'
 import BlogCard from './BlogCard'
 const BlogContainer = () => {
 
+    const id=useLocation().search.substr(2);
+    console.log('id',id);
     const [blogData,setBlogData]=useState('');
     const[loading,setLoading]=useState(true);
-    
-
+    let url='http://localhost:4000/api/blogs'
+    if(id?.length>0)
+    {
+      url=`http://localhost:4000/api/blogs/${id}?`
+    }
   const fetchBlogs=async()=>{
             
             try{     
                     setLoading(true);
-                    const user=await axios.get('http://localhost:4000/api/blogs');
+                    console.log(
+                      'url',url
+                    )
+                    const user=await axios.get(url);
+
                     setBlogData(user.data.data);
                     setLoading(false);
 

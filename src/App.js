@@ -1,6 +1,7 @@
 import './index.css'
 import Navbar from './components/common/Navbar';
 import Auth from './pages/Auth'
+import {useSelector} from 'react-redux'
 import {Routes,Route, Navigate, useNavigate} from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -11,20 +12,25 @@ import Blogs from './pages/Blogs'
 import Modal from './components/common/Modal'
 import Error from './pages/Error'
 import SingleProduct from './pages/SingleProduct'
-
+import Profile from './components/core/dashboard/Profile'
 import { useDispatch } from 'react-redux';
 import { setSignupData } from './reducer/slices/userSlice';
 import SingleBlog from './pages/SingleBlog';
-
+import Dashboard from './pages/Dashboard';
+import BlogContainer from './components/core/blog/BlogContainer'
+import MyBlog from './components/core/dashboard/MyBlog';
+import AddClass from './components/core/dashboard/AddClass';
+import AddBlog from './components/core/dashboard/AddBlog';
+import AddProduct from './components/core/dashboard/AddProduct';
 function App() {
   const navigate=useNavigate();
+
+  const{userData,token}=useSelector(state=>state.user);
+  console.log('userData',userData);
+  const id=userData?._id;
   
   
-  const data={
-    "text1":"You are not logged in",
-    "text2":"Please Login to add To Cart",
-   
-  }
+
   return (
     <div className='w-screen  flex-col relative p-0 m-0'>
       <Navbar/>
@@ -37,10 +43,21 @@ function App() {
         <Route path='/shop' element={<Shop/>}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/send-otp' element={<SendOTP/>}></Route>
-        <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path='/blogs/:id?' element={<Blogs/>}></Route>
         <Route path='/blog/:id' element={<SingleBlog/>}></Route>
         <Route path='/product/:id' element={<SingleProduct/>}></Route>
-        <Route path='/modal' element={<Modal data={data}  />}/>
+       
+        <Route element={<Dashboard/>}>
+
+        <Route path='/dashboard/profile' element={<Profile/>}/>
+        <Route path='/dashboard/dashboard' element={<Profile/>}/>
+        <Route path='/dashboard/classes-products' element={<Profile/>}/>
+        <Route path='/dashboard/blogs/:id?' element={<MyBlog/>}/>
+        <Route path='/dashboard/addClass' element={<AddClass/>}/>
+        <Route path='/dashboard/addProduct' element={<AddProduct/>}/>
+        <Route path='/dashboard/addBlog' element={<AddBlog/>}/>
+
+        </Route>
         <Route path='*' element={<Error/>}></Route>
       </Routes>
       

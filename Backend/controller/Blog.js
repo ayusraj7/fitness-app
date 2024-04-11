@@ -92,6 +92,35 @@ exports.getBlog=async(req,res)=>{
 }
 
 
+exports.userBlogs=async(req,res)=>{
+    try{
+        //create blog 
+        const user_id=req.params.id;
+        
+        const user=await Blog.find({creator: user_id}).exec();
+        console.log('user',user);
+        if(user)
+        {
+            console.log('user',user);
+        }
+        res.status(200).json({
+          success:true,
+          message:'Blog successfully fetched',  
+          data:user
+        })
+
+
+    }catch(error)
+    {
+        console.log('error',error);
+        res.status(500).json({
+            success:false,
+            message:'Blog not fetched successfully. Please try again',
+        })
+    }
+}
+
+
 
 exports.updateBlog=async(req,res)=>{
     try{

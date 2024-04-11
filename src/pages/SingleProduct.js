@@ -5,13 +5,16 @@ import Loading from './Loading';
 import toast from 'react-hot-toast'
 import { useParams } from 'react-router-dom';
 import Error from './Error'
+import { useSelector,useDispatch } from 'react-redux';
 import {useEffect,useState} from 'react';
 import Footer from '../components/common/Footer';
-
+import ProductSidebar from '../components/core/shop/ProductSidebar';
+import {setLoading} from '../reducer/slices/userSlice'
 const SingleProduct = () => {
 
     const {id}=useParams();
-    const[loading,setLoading]=useState(false);
+    const dispatch=useDispatch();
+    const{loading}=useSelector(state=>state.user);
     const[data,setData]=useState();
     const[error,setError]=useState(false);
 
@@ -19,11 +22,11 @@ const SingleProduct = () => {
   const fetchBlog=async()=>{
             
         try{     
-                setLoading(true);
+                dispatch(setLoading(true));
                 const user=await axios.get(`http://localhost:4000/api/product/${id}`);
                 console.log('user',user);
                 setData(user.data.data[0]);
-                setLoading(false);
+                dispatch(setLoading(false));
         }catch(error)
         {
             
@@ -31,7 +34,7 @@ const SingleProduct = () => {
             toast.error(`Blogs can't fetched`)
             setError(true);
         }
-        setLoading(false);
+        dispatch(setLoading(false));
         
     }
 
@@ -50,21 +53,21 @@ const SingleProduct = () => {
 
   return (
     <div className='bg-gradient-to-r from-pink-500 to-yellow-500 '>
-        <div className=' h-auto  px-[100px] pt-11 flex  justify-evenly'>
+        <div className=' h-auto gap-3 px-3 lg:px-[100px] pt-11 flex sm:flex-row flex-col justify-evenly'>
             
-                <div className=' text-white flex flex-col gap-3  w-[60%]'>
+                <div className=' text-white flex flex-col gap-3 sm:w-[50%] lg:w-[60%]'>
                     <img src={data?.img} alt="" className='  h-[360px]  w-full rounded-lg' />
                     <h1 className='text-white  text-4xl mt-3'>{data?.name}</h1>
                         <div className='mt-8 flex flex-col gap-4 w-[90%]'>
                             <div className='flex gap-3 justify-between'>
                                 
                                 <p className='text-lime-400 text-[20px]'>Price: <span className='line-through text-red-700'>{data?.price+200}</span> <span className='text-lime-400'>{data?.price}</span></p>
-                                <p className='text-xl font-bold text-blue-900'>{data?.seller?.name}</p>
+                                <p className='text-xl font-bold text-blue-900'>{data?.seller?.name}</p> 
                             </div>
-                            <p className='text-[20px] text-white md:w-[90%]'>{data?.description}</p>
+                            <p className='sm:block hidden text-[20px] text-white md:w-[90%]'>{data?.description}</p>
                         </div>
                 </div>
-                <SideBar/>
+                <ProductSidebar data={data}/>
         </div>
         <Footer/>
     </div>

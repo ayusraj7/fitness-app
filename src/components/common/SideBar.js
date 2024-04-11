@@ -6,7 +6,7 @@ import img from '../../asset/gym.jpg'
 const SideBar = () => {
   return (
     <>
-         <div className='flex pb-10 h-auto flex-col gap-4 px-6 bg-[rgb(253,253,245)] w-[25%] rounded-lg'>
+         <div className='sm:flex pb-10 h-auto flex-col gap-4 px-6 bg-[rgb(253,253,245)] hidden w-[35%] lg:w-[25%] rounded-lg'>
                 <div className='flex gap-1 border-y mt-8 w-[50%] mx-auto items-center '>
                     <Link to={'/'} >  <CgGym size={24}/> </Link>
                     <h1 className='text-center  mx-auto text-2xl font-extralight'>The Fitness</h1>

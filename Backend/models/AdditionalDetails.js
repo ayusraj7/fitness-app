@@ -8,8 +8,8 @@ const detailsSchema = new mongoose.Schema({
 	age: {
 		type: Number,
 	},
-	preference: {
-        type:Array	
+	about: {
+        type:String,	
 	},
 	gender: {
 		type: String,

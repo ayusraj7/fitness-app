@@ -6,6 +6,7 @@ const userSlice = createSlice({
         signupData:null,
         loading:false,
         userData:localStorage.getItem("userData")?JSON.parse(localStorage.getItem("userData")):null,
+        error:false,
     },
     reducers:{
         setSignupData(state,value){
@@ -19,6 +20,10 @@ const userSlice = createSlice({
         },
         setUserData(state,value){
             state.userData=value.payload;
+        },
+        setError(state,value)
+        {
+            state.error=value.payload;
         }
     }
 })

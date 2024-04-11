@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {setToken,setUserData} from '../../../reducer/slices/userSlice'
 import {toast} from 'react-hot-toast';
 import { CgCloseO } from "react-icons/cg";
@@ -9,7 +9,7 @@ const DropDownMenu = () => {
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const {userData}=useSelector((state=>state.user));
-    const {show}=useSelector(state=>state.dropMenu);
+  
     
   
     const usertype=userData?.accountType;
@@ -29,24 +29,24 @@ const DropDownMenu = () => {
         
     }
   return (
-    <div className={`flex absolute top-0 right-[-6%] bg-neutral-800 border-2  border-neutral-700 h-[210px] w-[190px] rounded-md mt-[20px] pt-2 pl-3 opacity-90 flex-col`}>
+    <div className={`flex absolute top-0 right-[2%] bg-neutral-800 border-2  border-neutral-700 h-[170px] w-[160px] rounded-md mt-[20px] pt-2 pl-3 opacity-90 flex-col`}>
         <CgCloseO className='text-white absolute right-4 top-3 ' onClick={closedrop}/>
-        <p className='hover:bg-neutral-700 hover:rounded-md hover:mr-1  transition-all duration-300 p-1 rounded-md px-2 hover:text-slate-200  '>My Profile</p>
+ 
         {
             usertype==='member' && <>
-                <p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Cart</p>
-                <p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Enrolled Classes</p>
+                <Link to='/cart'><p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Cart</p></Link>
             </>    
         }
         {
             usertype==='trainer' && <>
-                <p className='hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>My Elements</p>
-                <p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2 hover:text-slate-200  '>Dashboard</p>
+
+                <Link to='/dashboard/dashboard'><p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2 hover:text-slate-200'>Dashboard</p></Link>
                 
             </>    
         }
         
-        <p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Settings</p>
+        <Link to='/dashboard/profile'><p className='hover:bg-neutral-700 hover:rounded-md hover:mr-1  transition-all duration-300 p-1 rounded-md px-2 hover:text-slate-200'>Profile</p></Link>
+      <Link to='/dashboard/settings'><p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Settings</p></Link>
         <p className='hover:bg-neutral-700 hover:rounded-md hover:mr-1  transition-all duration-300 p-1 rounded-md px-2' onClick={logout}>Logout</p>
     </div>
   )

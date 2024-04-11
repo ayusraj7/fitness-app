@@ -1,8 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 
 const BlogCard = ({data}) => {
-  console.log('data',data._id)
+  
+  
   
   const text=data?.description.substr(0,300);
   const navigate=useNavigate();

@@ -5,7 +5,7 @@ const classesSchema = new mongoose.Schema({
   name: { type: String ,required:true},
 
   preference: { type: String ,required:true},
-
+  description:{type:String,required:true},
   instructor: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,

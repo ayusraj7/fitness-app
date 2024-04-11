@@ -58,7 +58,7 @@ const LoginForm = () => {
                     
                     toast.success(user.data.message);
                    
-                    navigate('/dashboard');
+                    navigate('/dashboard/profile');
 
             }catch(error)
             {   
