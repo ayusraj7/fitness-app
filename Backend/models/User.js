@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema(
     resetPasswordExpires: {
       type: Date,
     },
+    classes:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Class'
+    }],
     product:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Product'

@@ -36,7 +36,7 @@ const LoginForm = () => {
             const toastId=toast.loading('loading');
             try{
                     
-                    const user=await axios.post('http://localhost:4000/api/login',{
+                    const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/login',{
                         email,
                         password
                     });

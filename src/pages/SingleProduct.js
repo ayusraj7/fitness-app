@@ -23,7 +23,7 @@ const SingleProduct = () => {
             
         try{     
                 dispatch(setLoading(true));
-                const user=await axios.get(`http://localhost:4000/api/product/${id}`);
+                const user=await axios.get(`https://fitness-app-0cqd.onrender.com/api/product/${id}`);
                 console.log('user',user);
                 setData(user.data.data[0]);
                 dispatch(setLoading(false));

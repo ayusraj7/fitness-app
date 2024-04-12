@@ -10,10 +10,10 @@ const BlogContainer = () => {
     console.log('id',id);
     const [blogData,setBlogData]=useState('');
     const[loading,setLoading]=useState(true);
-    let url='http://localhost:4000/api/blogs'
+    let url='https://fitness-app-0cqd.onrender.com/api/blogs'
     if(id?.length>0)
     {
-      url=`http://localhost:4000/api/blogs/${id}?`
+      url=`https://fitness-app-0cqd.onrender.com/api/blogs/${id}?`
     }
   const fetchBlogs=async()=>{
             

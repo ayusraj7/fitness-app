@@ -3,6 +3,7 @@ const uploadToCloudinary=require('../config/uploadToCloudinary');
 exports.uploadPhoto=async(req,res)=>{
     try{
         const file = req.files.file;
+        
       
         //create a successful response
         const ans=await uploadToCloudinary(file);

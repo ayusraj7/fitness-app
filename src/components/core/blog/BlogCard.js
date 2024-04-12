@@ -18,7 +18,7 @@ const BlogCard = ({data}) => {
         <img src={data?.img} alt={data?.name} className='w-full h-[160px] rounded-t-md'/>
         <h1 className='font-italic font-semibold text-xl text-neutral-300'>{data?.name}</h1>
         <p className='mt-2 text-sm text-center text-lime-500'>{new Date(data?.updatedAt).toDateString().substr(4)}</p>
-        <p className='px-2 text-gray-400 text-sm font-inter mt-1'>{text}...</p>
+        <p className='px-2 text-gray-400 text-sm font-inter mt-1'>{text.substr(0,120)}...</p>
     </div>
   )
 }

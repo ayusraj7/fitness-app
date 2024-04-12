@@ -48,7 +48,7 @@ const Products = () => {
 
     const fetchProducts=async()=>{
         try{                  
-                const user=await axios.get('http://localhost:4000/api/products');
+                const user=await axios.get('https://fitness-app-0cqd.onrender.com/api/products');
                 if(!user.data.success)
                 {
                     throw new Error(user.data.message);

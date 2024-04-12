@@ -8,13 +8,13 @@ dotenv.config();
 // This function is used as middleware to authenticate user requests
 exports.auth = async (req, res, next) => {
 	try {
-		console.log('kaise ho saare--->')
-		console.log('req.body',req.body);
+		
 		//extracting token 
 		const token =
 			req.body.token || req.cookies.token || req.header("Authorization").replace("Bearer ", "");
 
 		// If JWT is missing, return 401 Unauthorized response
+		
 		if (!token) {
 			return res.status(401).json({ success: false, message: `Token Missing` });
 		}
@@ -22,7 +22,7 @@ exports.auth = async (req, res, next) => {
 		try {
 			// Verifying the JWT using the secret key stored in environment variables
 			const decode = await jwt.verify(token, process.env.JWT_SECRET);
-			console.log(decode);
+			
 			// Storing the decoded JWT payload in the request object for further use
 			req.user = decode;
 		} catch (error) {
@@ -46,6 +46,7 @@ exports.auth = async (req, res, next) => {
 
 exports.isMember = async (req, res, next) => {
 	try {
+		
 		const userDetails = await User.findOne({ email: req.user.email });
 
 		if (userDetails.accountType !== "member") {
@@ -64,8 +65,10 @@ exports.isMember = async (req, res, next) => {
 
 exports.isTrainer = async (req, res, next) => {
 	try {
+		console.log('req.user',req.user.email);
 		const userDetails = await User.findOne({ email: req.user.email });
-
+		console.log('user',await User.find({}));
+		console.log('userDetails',userDetails);
 		if (userDetails.accountType !== "trainer") {
 			return res.status(401).json({
 				success: false,
@@ -73,7 +76,8 @@ exports.isTrainer = async (req, res, next) => {
 			});
 		}
 		next();
-	} catch (error) {
+	} catch (error){
+		console.log('error',error)
 		return res
 			.status(500)
 			.json({ success: false, message: `User Role Can't be Verified` });

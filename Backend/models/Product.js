@@ -20,7 +20,11 @@ const productSchema=new mongoose.Schema({
     seller:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
-    }
+    },
+    studentPurchased:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+    }]
 },
 {timestamps:true})
 

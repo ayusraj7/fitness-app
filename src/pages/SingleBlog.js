@@ -23,7 +23,7 @@ const SingleBlog = () => {
             
     try{     
             setLoading(true);
-            const user=await axios.get(`http://localhost:4000/api/blog/${id}`);
+            const user=await axios.get(`https://fitness-app-0cqd.onrender.com/api/blog/${id}`);
             
             setData(user.data.data[0]);
             setLoading(false);
