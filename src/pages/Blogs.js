@@ -18,7 +18,7 @@ const Blogs = () => {
                 <p className='font-semibold text-xl text-white'>For Fitness and Health</p>
             </div>
 
-            <div className='w-[95%] mx-auto mt-6 flex gap-8 justify-evenly'>
+            <div className='w-[95%] mx-auto mt-6 flex sm:flex-row flex-col gap-8 justify-evenly'>
                 <img src={img} alt="blogs" className='rounded-md h-[370px] w-[70%]'/>
                 <p className=' lg:w-[45%] text-sm lg:text-[17px] leading-6 text-zinc-400 font-inter flex items-center'>Physical fitness and health is perhaps the main key to a sound body. It is the premise of an innovative creative movement. Fitness implies the state of being genuinely solid, particularly practices and legitimate nourishment it even incorporates being intellectually sound. It is the explanation, a condition of general prosperity set apart by actual wellbeing and mental solidness. Fitness isn’t simply twisting our bodies. It is tied in with having cardiovascular and generally solid perseverance and strength, just as a solid safe framework, and in particular, a fulfilled condition of your brain.</p>
             </div>
