@@ -31,6 +31,7 @@ const AddBlog = () => {
     if(!url)
     {
       toast.error('First Upload Image');
+      return;
     }
     setLoading(true);
     const toastId=toast.loading('loading');

@@ -1,10 +1,11 @@
 const Class=require('../models/Classes')
+const Category=require('../models/Category')
 
-exports.createClasses = async(req,res)=>{
+exports.createClass = async(req,res)=>{
     try{
         const{name,preference,timing,duration,price,img,categoryId,description}=req.body;
-        
-        if(!name ||!preference || !timing || !duration ||!category || !img ||  !description || !price)
+        console.log('reqsad',req.body);
+        if(!name ||!preference ||!description || !timing || !duration ||!categoryId || !img  || !price)
         {
             return res.status(400).json({
                 success:false,
@@ -14,7 +15,9 @@ exports.createClasses = async(req,res)=>{
 
         const userId=req.user.id;
 
+
         const category=await Category.find({_id:categoryId});
+        
         if(!category)
         {
             res.status(400).json({
@@ -26,18 +29,32 @@ exports.createClasses = async(req,res)=>{
         const newClass=await Class.create({
             name,
             preference,
+            description,
             timing,
             duration,
             price,
             img,
-            description,
-            $push: { category:categoryId},
-            seller:userId
+            category:categoryId,
+            instructor:userId
         })
+
+        console.log('newClass',newClass);
+        if(!newClass)
+        {
+            res.status(400).json({
+                success:true,
+                message:"Class not Created"
+            })
+        }
+
+        const categories=await Category.findByIdAndUpdate({_id:categoryId},{
+            $push:{classes:newClass._id}
+        }) ;
+        console.log('categories',categories);
 
         return res.status(202).json({
             success:true,
-            message:'Product successfully added ',
+            message:'Class Successfully created ',
         })
 
     }catch(error)
@@ -51,15 +68,16 @@ exports.createClasses = async(req,res)=>{
     }
 }
 
-exports.getProduct=async(req,res)=>{
+exports.getClasses=async(req,res)=>{
     try{
-        const product=await Product.find({})
+        const classes=await Class.find({}).populate('instructor')
+        
         
 
         return res.status(202).json({
             success:true,
-            message:'Products fetched ',
-            data:product,
+            message:'Classes fetched ',
+            data:classes,
         })
 
     }catch(error)

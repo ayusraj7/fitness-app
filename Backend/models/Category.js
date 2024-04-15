@@ -5,13 +5,13 @@ const categorySchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
-		enum:['Girls','Boys','Strength','Body Building','Yoga','Endurance','Weight loss','Kick Boxing']
+		enum:['Strength','Body Building','Yoga','Endurance','Weight loss','Kick Boxing','Diet',,'Fitness','Athletics']
 	},
 	description: { type: String },
-	courses: [
+	classes: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Classes",
+			ref: "Class",
 		},
 	],
 });

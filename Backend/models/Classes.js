@@ -16,7 +16,7 @@ const classesSchema = new mongoose.Schema({
       required:true,
   },
   duration:{
-      type:Number,
+      type:String,
       required:true,
   },
   price:{
@@ -26,10 +26,10 @@ const classesSchema = new mongoose.Schema({
   img: {
     type: String,
   },
-  category:[ {
+  category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
-  }],
+  },
   studentEnrolled: [
     {
       type: mongoose.Schema.Types.ObjectId,

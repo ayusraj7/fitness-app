@@ -12,7 +12,7 @@ exports.auth = async (req, res, next) => {
 		//extracting token 
 		const token =
 			req.body.token || req.cookies.token || req.header("Authorization").replace("Bearer ", "");
-
+	    console.log('token',token);
 		// If JWT is missing, return 401 Unauthorized response
 		
 		if (!token) {
@@ -21,8 +21,8 @@ exports.auth = async (req, res, next) => {
 
 		try {
 			// Verifying the JWT using the secret key stored in environment variables
-			const decode = await jwt.verify(token, process.env.JWT_SECRET);
-			
+			const decode =jwt.decode(token, process.env.JWT_SECRET);
+			console.log('decode',decode);
 			// Storing the decoded JWT payload in the request object for further use
 			req.user = decode;
 		} catch (error) {
@@ -67,8 +67,7 @@ exports.isTrainer = async (req, res, next) => {
 	try {
 		console.log('req.user',req.user.email);
 		const userDetails = await User.findOne({ email: req.user.email });
-		console.log('user',await User.find({}));
-		console.log('userDetails',userDetails);
+		
 		if (userDetails.accountType !== "trainer") {
 			return res.status(401).json({
 				success: false,
