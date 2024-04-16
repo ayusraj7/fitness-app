@@ -7,7 +7,7 @@ const Dashboard = () => {
     <div className='flex bg-neutral-800 h-[100vh-6vh] text-white '>
         <SideBar/>
         <div className="sm:h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
-        <div className="mx-auto py-10">
+        <div className="mx-auto pt-10">
           <Outlet />
         </div>
       </div>

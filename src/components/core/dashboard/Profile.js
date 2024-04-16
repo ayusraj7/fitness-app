@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import { FiEdit } from "react-icons/fi";
 const Profile = () => {
     const {userData}=useSelector(state=>state.user);
-    console.log('userDAta',userData);
+
   return (
     <div className='flex flex-col w-full gap-10 px-[60px] items-center  pb-10'>
         <h1 className='font-inter text-white font-extralight text-5xl mt-7'>My Profile</h1>

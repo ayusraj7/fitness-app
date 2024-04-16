@@ -16,7 +16,7 @@ exports.createBlog =async(req,res)=>{
 
         //create blog 
         const userId=req.user.id;
-        console.log('userId',userId);
+       
         const userBlog=await Blog.create({
             name,
             img,
@@ -24,7 +24,7 @@ exports.createBlog =async(req,res)=>{
             creator:userId
         })
 
-        console.log('userBlog',userBlog);
+        
         res.status(200).json({
           success:true,
           message:'Blog successfully created ',  
@@ -45,9 +45,7 @@ exports.getBlogs=async(req,res)=>{
     try{
         //create blog 
         const blogs=await Blog.find({});
-        console.log('blogs',blogs);
-
-        console.log('userBlog',blogs);
+        
         res.status(200).json({
           success:true,
           message:'Blogs successfully fetched',  
@@ -70,10 +68,7 @@ exports.getBlog=async(req,res)=>{
         //create blog 
         const id=req.params.id;
         const user=await Blog.find({_id:id}).populate('creator')
-        if(user)
-        {
-            console.log('user',user);
-        }
+        
         res.status(200).json({
           success:true,
           message:'Blog successfully fetched',  

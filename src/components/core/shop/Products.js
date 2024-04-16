@@ -1,47 +1,9 @@
 import React,{useEffect, useState} from 'react'
-import img1 from '../../../asset/supplement.jpg'
 import ProductCard from './ProductCard'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import Loading from '../../../pages/Loading'
-const product=[
-    {
-        img:img1,
-        name:'The Fitness T-shirt',
-        realprice:700,
-        price:550,
-        description:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, nulla!'
-    },
-    {
-        img:img1,
-        name:'Liver oil',
-        realprice:700,
-        price:650,
-        description:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, nulla!'
-    },
-    {
-        img:img1,
-        name:'Iron tablets ',
-        realprice:700,
-        price:850,
-        description:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, nulla!'
-    },
-    {
-        img:img1,
-        name:'Zinc Tablets',
-        realprice:700,
-        price:900,
-        description:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, nulla!'
-    },
-    {
-        img:img1,
-        name:'Zinc Tablets',
-        realprice:700,
-        price:900,
-        description:'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, nulla!'
-    },
-    
-]
+
 
 const Products = () => {
     const[products,setProductData]=useState('');

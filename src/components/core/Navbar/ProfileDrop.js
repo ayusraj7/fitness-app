@@ -19,7 +19,11 @@ const ProfileDrop = () => {
   return (
     <div className='flex items-center gap-3' >
 
-        <FaCartShopping/>
+        {
+          userData?.accountType==='member' && <FaCartShopping/>
+        }
+
+        
 
         <div className='flex items-center justify-center' onClick={showdrop}>
           
