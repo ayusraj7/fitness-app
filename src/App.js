@@ -17,11 +17,16 @@ import { useDispatch } from 'react-redux';
 import { setSignupData } from './reducer/slices/userSlice';
 import SingleBlog from './pages/SingleBlog';
 import Dashboard from './pages/Dashboard';
-import BlogContainer from './components/core/blog/BlogContainer'
 import MyBlog from './components/core/dashboard/MyBlog';
 import AddClass from './components/core/dashboard/AddClass';
 import AddBlog from './components/core/dashboard/AddBlog';
 import AddProduct from './components/core/dashboard/AddProduct';
+import CAndP from './components/core/dashboard/CAndP';
+import Cart from './components/core/dashboard/Cart';
+import Settings from './components/core/dashboard/Settings'
+import PurchasedItems from './components/core/dashboard/PurchasedItems';
+import EnrolledClasses from './components/core/dashboard/EnrolledClasses';
+
 function App() {
   const navigate=useNavigate();
 
@@ -51,11 +56,16 @@ function App() {
 
         <Route path='/dashboard/profile' element={<Profile/>}/>
         <Route path='/dashboard/dashboard' element={<Profile/>}/>
-        <Route path='/dashboard/classes-products' element={<Profile/>}/>
+        <Route path='/dashboard/classes-products' element={<CAndP/>}/>
         <Route path='/dashboard/blogs/:id?' element={<MyBlog/>}/>
         <Route path='/dashboard/addClass' element={<AddClass/>}/>
         <Route path='/dashboard/addProduct' element={<AddProduct/>}/>
         <Route path='/dashboard/addBlog' element={<AddBlog/>}/>
+
+        <Route path='/dashboard/cart' element={<Cart/>}/>
+        <Route path='/dashboard/settings' element={<Settings/>}/>
+        <Route path='/dashboard/purchased-items' element={<PurchasedItems/>}/>
+        <Route path='/dashboard/enrolled-classes' element={<EnrolledClasses/>}/>
 
         </Route>
         <Route path='*' element={<Error/>}></Route>

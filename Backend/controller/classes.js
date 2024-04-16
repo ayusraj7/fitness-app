@@ -1,5 +1,6 @@
 const Class=require('../models/Classes')
 const Category=require('../models/Category')
+const User=require('../models/User')
 
 exports.createClass = async(req,res)=>{
     try{
@@ -38,7 +39,6 @@ exports.createClass = async(req,res)=>{
             instructor:userId
         })
 
-        console.log('newClass',newClass);
         if(!newClass)
         {
             res.status(400).json({
@@ -50,7 +50,7 @@ exports.createClass = async(req,res)=>{
         const categories=await Category.findByIdAndUpdate({_id:categoryId},{
             $push:{classes:newClass._id}
         }) ;
-        console.log('categories',categories);
+        
 
         return res.status(202).json({
             success:true,
@@ -70,13 +70,13 @@ exports.createClass = async(req,res)=>{
 
 exports.getClasses=async(req,res)=>{
     try{
-        const classes=await Class.find({}).populate('instructor')
+        const classes=await Class.find({}).populate('instructor');
         
         
 
         return res.status(202).json({
             success:true,
-            message:'Classes fetched ',
+            message:'Classes fetched Successfully',
             data:classes,
         })
 
@@ -88,5 +88,46 @@ exports.getClasses=async(req,res)=>{
             message:'internal server error',
         })
 
+    }
+}
+
+//get class of a particular trainer. 
+exports.getInstructorClasses=async(req,res)=>{
+    try{
+        
+        const {id}=req.params;
+
+        const classes=await Class.find({instructor:id}).exec();
+        
+        res.status(200).json({
+            success:true,
+            message:'User Classes Fetched Successfully',
+            data:classes
+        })
+
+    }catch(error)
+    {
+        console.log('error--->',error);
+        res.status(500).json({success:false,message:'Internal Server Error'})
+    }
+}
+
+exports.getMemberClasses=async(req,res)=>{
+    try{
+        
+        const {id}=req.params;
+
+        const classes=await User.find({_id:id}).populate('classes').exec();
+        
+        res.status(200).json({
+            success:true,
+            message:'Member Classes Fetched Successfully',
+            data:classes
+        })
+
+    }catch(error)
+    {
+        console.log('error--->',error);
+        res.status(500).json({success:false,message:'Internal Server Error'})
     }
 }

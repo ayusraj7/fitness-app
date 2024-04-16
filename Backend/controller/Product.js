@@ -78,7 +78,57 @@ exports.getProduct=async(req,res)=>{
         console.log('error',error);
         res.status(500).json({
             success:false,
-            message:'Blog not fetched successfully. Please try again',
+            message:'Products not fetched successfully. Please try again',
         })
     }
 }
+
+
+exports.instructorProduct=async(req,res)=>{
+    try{
+        //create blog 
+        const id=req.params.id;
+        const user=await Product.find({seller:id}).populate('seller')
+        
+        res.status(200).json({
+          success:true,
+          message:'Trainer Products successfully fetched',  
+          data:user
+        })
+
+
+    }catch(error)
+    {
+        console.log('error',error);
+        res.status(500).json({
+            success:false,
+            message:'Products not fetched successfully. Please try again',
+        })
+    } 
+}
+
+
+exports.userProduct=async(req,res)=>{
+    try{
+        //create blog 
+        const id=req.params.id;
+        const user=await User.find({_id:id}).populate('product').exec();
+        
+        res.status(200).json({
+          success:true,
+          message:'user Products successfully fetched',  
+          data:user
+        })
+
+
+    }catch(error)
+    {
+        console.log('error',error);
+        res.status(500).json({
+            success:false,
+            message:'Products not fetched successfully. Please try again',
+        })
+    } 
+}
+
+

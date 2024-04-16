@@ -11,7 +11,7 @@ const UpperPart = () => {
                 <Button  text={'BECAME A MEMBER'} css={'bg-red-600 text-white font-semibold py-[10px] px-4 text-sm rounded-none'}/>
             </div>
             <div className=' md:w-[45%] vignette'>
-                <img src={gymimg} alt="bodyBuilding" className='fit-cover  w-full h-[350px] md:h-[70%] md:rounded-full md:mt-[100px]  loading-lazy' />
+                <img src={gymimg} alt="bodyBuilding" className='fit-cover  md:w-[80%] w-full h-[350px] md:h-[60%] md:rounded-full md:mt-[130px]  loading-lazy' />
             </div>
         </div>
     </div>
