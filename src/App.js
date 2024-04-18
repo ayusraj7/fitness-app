@@ -26,6 +26,7 @@ import Cart from './components/core/dashboard/Cart';
 import Settings from './components/core/dashboard/Settings'
 import PurchasedItems from './components/core/dashboard/PurchasedItems';
 import EnrolledClasses from './components/core/dashboard/EnrolledClasses';
+import SingleClass from './pages/SingleClass';
 
 function App() {
   const navigate=useNavigate();
@@ -51,6 +52,7 @@ function App() {
         <Route path='/blogs/:id?' element={<Blogs/>}></Route>
         <Route path='/blog/:id' element={<SingleBlog/>}></Route>
         <Route path='/product/:id' element={<SingleProduct/>}></Route>
+        <Route path='/class/:id' element={<SingleClass/>}></Route>
        
         <Route element={<Dashboard/>}>
 
