@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import { CgGym } from "react-icons/cg";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IoSettings } from "react-icons/io5";
 import { IoLogOut } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
@@ -12,9 +12,13 @@ import { MdAdd } from "react-icons/md";
 import { FaBlogger } from "react-icons/fa";
 import { VscDashboard } from "react-icons/vsc";
 import {useLocation,matchPath,useNavigate} from 'react-router-dom'
-
+import { setToken,setUserData } from '../../../reducer/slices/userSlice';
+import toast from 'react-hot-toast'
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import Modal from '../../common/Modal';
 const SideBar = () => {
+  const[showModal,setModal]=useState(null)
+  const dispatch=useDispatch();
 
   const location=useLocation();
   const navigate=useNavigate();
@@ -25,7 +29,25 @@ const SideBar = () => {
  
   const [open,setOpen]=useState(false);
 
-  const {userData}=useSelector(state=>state.user)
+  const {userData}=useSelector(state=>state.user);
+
+  const logout=(e)=>{
+    e.stopPropagation();
+       setModal({
+         text1:"Are You Sure",
+         text2:"You will be logged out of your account",
+         btn1Text:"LogOut",
+         btn2Text:"Cancel",
+         btn1Handler:()=>{dispatch(setToken(null));
+          dispatch(setUserData(null));
+          localStorage.removeItem('token');
+          localStorage.removeItem('userData');
+          toast.success("Logged Out");
+          navigate('/');},
+         btn2Handler:()=>setModal(null),
+       });  
+    
+  }
  
   const id=userData?._id;
   return (
@@ -64,9 +86,12 @@ const SideBar = () => {
         }
         <div className='border-t border-gray-400 py-2 flex flex-col text-xl gap-2 w-[80%] text-gray-400 font-extralight '>
           <Link to='/dashboard/settings' className={`flex items-center  gap-2 ${matchRoute('/dashboard/settings')?' bg-yellow-300 text-orange-600 w-[90%] py-[3px] pl-1 rounded-sm ':''}`}><IoSettings/><p>Settings</p></Link>
-          <Link to='/dashboard/logout' className={`flex items-center gap-2 `}><IoLogOut/><p>Logout</p></Link>
+          <p to='/dashboard/logout' onClick={logout} className={`flex items-center  gap-2   w-[90%] py-[3px] pl-1 rounded-sm `}><IoLogOut/><span>Logout</span></p>
 
         </div>
+        {
+          showModal && <Modal modalData={showModal}/>
+        }
         
     </div>
   )

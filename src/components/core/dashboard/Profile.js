@@ -10,12 +10,19 @@ const Profile = () => {
         <div className='flex flex-col gap-14 w-[92%] sm:w-[85%] mx-auto mt-9'>
 
             <div className='border rounded-md border-neutral-500 w-full flex sm:flex-row flex-col  gap-3 justify-between p-5 items-center bg-neutral-600 px-[10%]'>
+                
                 <img src={userData?.additionalDetails?.img} alt={userData?.name} className='h-[100px] w-[100px] rounded-full ' /> 
+
                 <div className='flex flex-col gap-1'>
                     <h1>{userData?.name}</h1>
                     <p>{userData?.email}</p>
                     <p>{userData?.mobileno}</p>
                 </div>
+
+                <div className='flex gap-2 bg-yellow-300 rounded-sm px-3 py-1 text-blue-900 items-center'>
+                <p>Edit</p>
+                <FiEdit/>
+                 </div>
 
             </div>
 
