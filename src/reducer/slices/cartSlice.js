@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     },
     reducers:{
         setSignupData(state,value){
-            state.signupData=value.payload;
+            state.cartItems=value.payload;
         },
         removeFromCart:(state,action)=>{
             

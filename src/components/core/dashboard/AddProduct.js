@@ -61,13 +61,13 @@ const AddProduct = () => {
   return (
     <div>
 
-        <div className='flex flex-col '>
+        <div className='flex flex-col pb-3'>
             <div className=' w-[80%] mx-auto border-[#ab9999] border-b-2 '>
                 <h1 className='font-Inter text-[#f7ffff] text-5xl font-extralight my-3'>Create Product</h1>
                 <div className='h-3 bg-[#ab9999] w-[35%]'></div>
                 
             </div>
-            <form onSubmit={handleSubmit} className='w-[85%] flex flex-col mx-auto gap-10 mt-6'>
+            <form onSubmit={handleSubmit} className='sm:w-[85%] flex flex-col sm:mx-auto gap-10 mt-6'>
               <UploadPhoto setUrl={setUrl}/>
               <div className='bg-neutral-600 rounded-md flex flex-col gap-3 p-5 h-auto py-8 w-[80%] mx-auto'>
                 <label htmlFor="name" className='lg:w-[85%] lg:mx-auto'>Name <input required type="text" name="name" id="name"  className='block mt-1 w-full  mx-auto px-2 py-1 rounded-sm focus:outline-1 focus:outline-orange-600 focus:border-none text-orange-600' placeholder='Enter Product Name' value={formData.name} onChange={handleChange}/></label>

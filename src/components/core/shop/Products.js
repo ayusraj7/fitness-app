@@ -27,7 +27,7 @@ const Products = () => {
 useEffect(()=>{
 fetchProducts();
 },[])
-console.log('products',products);
+
   return (
     <div > 
         <div className='bg-[#0a0a0a] h-auto pb-8 relative'>

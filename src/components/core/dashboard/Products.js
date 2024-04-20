@@ -62,7 +62,7 @@ const Products = () => {
 
   return (
     <div > 
-        <div className='h-auto pb-8 relative flex w-[80%] px-10 mt-[80px] mx-auto flex-col '>
+        <div className='h-auto pb-8 relative flex sm:w-[80%] sm:px-10 px-3  mt-[80px] mx-auto flex-col '>
             
                
                 <div className='flex gap-5 flex-wrap justify-center lg:justify-start '>

@@ -59,14 +59,14 @@ const AddBlog = () => {
   return (
     <div>
 
-        <div className='flex flex-col gap-11 '>
+        <div className='flex flex-col gap-11  '>
 
             <div className=' w-[80%] mx-auto border-[#ab9999] border-b-2  '>
                 <h1 className='font-Inter text-[#f7ffff] text-5xl font-extralight my-3'>Create Blog</h1>
                 <div className='h-3 bg-[#ab9999] w-[35%]'></div>
             </div>
 
-            <form className='h-auto w-[85%] gap-9 flex flex-col py-10  mx-auto rounded-md  ' onSubmit={handleSubmit}>
+            <form className='h-auto sm:w-[85%] gap-9 flex flex-col py-10  sm:mx-auto rounded-md  ' onSubmit={handleSubmit}>
                 <UploadPhoto required setUrl={setUrl}/>
                 <div className='flex py-8 w-[80%] h-auto mx-auto flex-col gap-9 bg-neutral-600'>
                    <input type="search" name="title" id="title" required className=' w-[80%] mx-auto py-1 rounded-sm border-none focus:outline-none px-3 text-xl text-orange-600'

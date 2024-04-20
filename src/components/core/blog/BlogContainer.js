@@ -7,7 +7,7 @@ import BlogCard from './BlogCard'
 const BlogContainer = () => {
 
     const id=useLocation().search.substr(2);
-    console.log('id',id);
+    
     const [blogData,setBlogData]=useState('');
     const[loading,setLoading]=useState(true);
     let url='https://fitness-app-0cqd.onrender.com/api/blogs'
@@ -19,9 +19,6 @@ const BlogContainer = () => {
             
             try{     
                     setLoading(true);
-                    console.log(
-                      'url',url
-                    )
                     const user=await axios.get(url);
 
                     setBlogData(user.data.data);

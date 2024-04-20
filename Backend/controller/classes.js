@@ -131,3 +131,23 @@ exports.getMemberClasses=async(req,res)=>{
         res.status(500).json({success:false,message:'Internal Server Error'})
     }
 }
+
+exports.getSingleClass=async(req,res)=>{
+    try{
+        const{id}=req.params;
+        const user=await Class.find({_id:id}).populate('instructor');
+        console.log('user',user);
+        res.status(200).json({
+            success:true,
+            message:'Class fetched Successfully',
+            data:user
+        })
+
+    }catch(error){
+        console.log('error--->',error);
+        res.status(500).json({
+            success:false,
+            message:'Internal Server Error'
+        })
+    }
+}

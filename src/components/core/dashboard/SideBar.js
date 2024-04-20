@@ -29,8 +29,8 @@ const SideBar = () => {
  
   const id=userData?._id;
   return (
-    <div className='sm:w-[25%] md:w-[20%] border-x border-gray-800 shadow-sm h-screen overflow-y-hidden bg-neutral-600 shadow-gray-200 flex gap-9 flex-col pl-8 '>
-        <div className='mt-7 flex items-center gap-3 '>
+    <div className='sm:w-[25%] sm:h-screen h-[390px] w-full md:w-[20%] border-x border-gray-800 shadow-sm overflow-y-hidden bg-neutral-600 shadow-gray-200 flex gap-9 flex-col pl-8 '>
+        <div className='mt-2 sm:mt-7 flex items-center gap-3 '>
             <Link to='/'><CgGym size={34} className='text-orange-600'/></Link>
             <p className='font-extralight text-xl'>The Fitness</p>
         </div>

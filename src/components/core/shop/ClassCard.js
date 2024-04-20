@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../../common/Button'
 
 const ClassCard = ({element}) => {
-  console.log('element',element);
+  
   
   const navigate=useNavigate();
   const goto=()=>{
