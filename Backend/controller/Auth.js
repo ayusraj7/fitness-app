@@ -148,3 +148,19 @@ exports.signup = async (req, res) => {
       })
     }
   }
+
+
+  exports.deleteAccount=async(req,res)=>{
+    try{
+
+      const id=req.user.id;
+      
+
+    }catch(error){
+      console.log('error--->',error);
+      res.status(500).json({
+        success:false,
+        message:'Internal Server Error'
+      })
+    }
+  }

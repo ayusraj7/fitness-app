@@ -85,7 +85,7 @@ const SideBar = () => {
               </div>
         }
         <div className='border-t border-gray-400 py-2 flex flex-col text-xl gap-2 w-[80%] text-gray-400 font-extralight '>
-          <Link to='/dashboard/settings' className={`flex items-center  gap-2 ${matchRoute('/dashboard/settings')?' bg-yellow-300 text-orange-600 w-[90%] py-[3px] pl-1 rounded-sm ':''}`}><IoSettings/><p>Settings</p></Link>
+          <Link to='/dashboard/settings' className={`flex items-center  gap-2 ${matchRoute('/dashboard/settings')?' bg-yellow-300 text-orange-600 w-[100%] py-[3px] px-1 rounded-sm ':''}`}><IoSettings/><p>Settings</p></Link>
           <p to='/dashboard/logout' onClick={logout} className={`flex items-center  gap-2   w-[90%] py-[3px] pl-1 rounded-sm `}><IoLogOut/><span>Logout</span></p>
 
         </div>

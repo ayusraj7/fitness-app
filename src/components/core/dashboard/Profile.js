@@ -1,8 +1,10 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import { FiEdit } from "react-icons/fi";
+import {useNavigate} from 'react-router-dom'
 const Profile = () => {
     const {userData}=useSelector(state=>state.user);
+    const navigate=useNavigate();
 
   return (
     <div className='flex flex-col w-full gap-10 sm:px-[60px] items-center  pb-10'>
@@ -20,7 +22,7 @@ const Profile = () => {
                 </div>
 
                 <div className='flex gap-2 bg-yellow-300 rounded-sm px-3 py-1 text-blue-900 items-center'>
-                <p>Edit</p>
+                <p onClick={()=>navigate('/dashboard/settings')}>Edit</p>
                 <FiEdit/>
                  </div>
 
@@ -29,7 +31,7 @@ const Profile = () => {
             <div className='rounded-md flex flex-col p-[5%] pb-10 px-[10%] gap-3 border border-neutral-500 bg-neutral-600'>
                     <div className='flex justify-between'>
                         <h1 className='text-gray-400  text-[20px] font-semibold'>About</h1>
-                        <div className='flex gap-2 bg-yellow-300 rounded-sm px-3 py-1 text-blue-900 items-center'>
+                        <div onClick={()=>navigate('/dashboard/settings')} className='flex gap-2 bg-yellow-300 rounded-sm px-3 py-1 text-blue-900 items-center'>
                             <p>Edit</p>
                             <FiEdit/>
                         </div>
@@ -42,7 +44,7 @@ const Profile = () => {
 
                 <div className='flex justify-between mt-7'>
                     <h1 className='text-[20px] font-semibold text-gray-400'>Personal Details</h1>
-                    <div className='flex gap-2 bg-yellow-300 rounded-sm px-3 py-1 text-blue-900 items-center h-[30px]'>
+                    <div onClick={()=>navigate('/dashboard/settings')} className='flex gap-2 bg-yellow-300 rounded-sm px-3 py-1 text-blue-900 items-center h-[30px]'>
                             <p>Edit</p>
                             <FiEdit/>
                     </div>
