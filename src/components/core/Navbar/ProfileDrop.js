@@ -3,9 +3,11 @@ import { useSelector,useDispatch } from 'react-redux';
 import DropDownMenu from './DropDownMenu';
 import {setShowing} from '../../../reducer/slices/DropMenu'
 import { FaCartShopping } from "react-icons/fa6";
+import {Link} from 'react-router-dom'
 
 const ProfileDrop = () => {
     const {userData}=useSelector(state=>state.user);
+    const {totalItems}=useSelector(state=>state.cart);
 
     const img=userData?.additionalDetails?.img;
   
@@ -20,7 +22,10 @@ const ProfileDrop = () => {
     <div className='flex items-center gap-3' >
 
         {
-          userData?.accountType==='member' && <FaCartShopping/>
+          userData?.accountType==='member' && <Link to='/dashboard/cart' className='relative'>
+          <span className='absolute text-[11px] -top-2 right-0 px-1 flex items-center text-white bg-green-600 rounded-full w-[13px] h-[13px]'>{totalItems}</span>
+          <FaCartShopping/>
+          </Link>
         }
 
         

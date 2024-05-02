@@ -9,6 +9,7 @@ import { useParams,useNavigate} from 'react-router-dom';
 import SideBar from '../components/common/SideBar';
 import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
+import moment from 'moment';
 
 const SingleBlog = () => {
     const {id}=useParams();
@@ -72,11 +73,11 @@ const goto=()=>{
               }
             </div>
             <div className='mt-8 flex flex-col gap-6 '>
-                <div className='flex justify-between w-[90%] '>
+                <div className='flex justify-between w-[95%] '>
                     <p  className='text-orange-500 text-xl'>Author: <span onClick={goto} className='rounded-md font-bold  hover:text-black text-blue-900'>{data?.creator?.name}</span></p>
-                    <p className='text-xl text-orange-500'>Ago</p>
+                    <p className='text-xl text-orange-600'>{moment(data?.createdAt).fromNow()}</p>
                 </div>
-                <p className='text-[20px] text-[#666666] md:w-[80%]'>{data?.description}</p>
+                <p className='text-[20px] text-[#666666] md:w-[85%]'>{data?.description}</p>
             </div>
             </div>
             <SideBar/>

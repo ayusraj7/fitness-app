@@ -19,6 +19,9 @@ const DropDownMenu = () => {
         dispatch(setUserData(null));
         localStorage.removeItem('token');
         localStorage.removeItem('userData');
+        localStorage.removeItem('cartItems');
+        localStorage.removeItem('total');
+        localStorage.removeItem('totalItems');
         toast.success("Logged Out");
         navigate('/');
     }

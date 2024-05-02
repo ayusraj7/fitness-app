@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from 'react-hot-toast'
 const cartSlice = createSlice({
     name:'Cart',
     initialState:{
@@ -7,10 +8,34 @@ const cartSlice = createSlice({
         totalItems:localStorage.getItem('totalItems')?JSON.parse(localStorage.getItem('totalItems')):0,
     },
     reducers:{
-        setSignupData(state,value){
-            state.cartItems=value.payload;
+        setCartItems(state,value){
+            const item=value.payload;
+            const itemsPresent=state?.cartItems?.filter((value)=>value._id===item._id);
+            if(itemsPresent.length===0)
+            {
+                state.cartItems.push(value.payload);
+                state.total=state.total+value.payload.price;
+                state.totalItems=state.totalItems+1;  
+
+                localStorage.setItem("cart", JSON.stringify(state.cart))
+                localStorage.setItem("total", JSON.stringify(state.total))
+                localStorage.setItem("totalItems", JSON.stringify(state.totalItems))
+
+                toast.success("Course added to cart")
+            }else{
+                toast.error("Course already in cart")
+            }
+            
         },
         removeFromCart:(state,action)=>{
+            if(state.totalItems>0)
+            {
+                const item=action.payload;
+                state.cartItems.filter((element)=>element._id===item._id);
+                console.log(state.cartItems.filter((element)=>element._id===item._id));
+                state.total=state.total-action.payload.price;
+                state.totalItems=state.totalItems-1;
+            }
             
         },
         resetCart:(state)=>{
@@ -24,5 +49,5 @@ const cartSlice = createSlice({
     }
 })
 
-export const {removeFromCart,resetCart}=userSlice.actions;
-export default userSlice.reducer;
+export const {setCartItems,removeFromCart,resetCart}=cartSlice.actions;
+export default cartSlice.reducer;

@@ -25,7 +25,7 @@ const SingleClass = () => {
   const fetchClass=async()=>{  
         try{     
                 setLoading(true);
-                const user=await axios.get(`http://localhost:4000/api/class/${id}`);
+                const user=await axios.get(`https://fitness-app-0cqd.onrender.com/api/class/${id}`);
                 console.log('user',user);
                 if(!user.data.success)
                 {
@@ -57,23 +57,24 @@ const SingleClass = () => {
         return (<Error text={'on getting the Product'}/>)
     }
   return (
-    <div className='text-white bg-black h-auto'>
+    <div className='text-white bg-gradient-to-r from-pink-500 to-yellow-500 h-auto'>
         <div className='w-9/12 items-center flex flex-col gap-3 mx-auto pt-[60px]'>
             <img src={data?.img} alt={data?.name} className='rounded-md h-[300px] w-[80%]' />
-            <h1 className='text-3xl text-gray-600 font-semibold'>{data?.name}</h1>
-            <p className='text-orange-400 text-sm font-semibold'>{data?.preference}</p>
+            <h1 className='text-3xl text-white font-semibold'>{data?.name}</h1>
+            <p className='text-gray-700 text-sm font-semibold'>{data?.preference}</p>
             <div className='w-[80%] flex flex-col gap-3'>
                 <p className=' text-xl font-extralight'>{data?.description}</p>
                 <div className='flex justify-between'>
-                   <p className='text-gray-400'>Duration :<span className='text-blue-400'>{data?.duration}</span></p>
-                   <p className='w-[25%] text-gray-400'>Timing : <span className='text-blue-400'>{data?.timing}</span></p>
+                   <p className='text-lime-400'>Duration :<span className='text-red-800'>{data?.duration}</span></p>
+                   <p className='w-[25%] text-lime-400'>Timing : <span className='text-red-800'>{data?.timing}</span></p>
                 </div>
-                <p className='text-gray-400'>Student Enrolled : <span className='text-blue-400'>{data?.studentEnrolled?.length?data?.studentEnrolled?.length:0}</span></p>
+                <p className='text-gray-200'>Student Enrolled : <span className='text-blue-500'>{data?.studentEnrolled?.length?data?.studentEnrolled?.length:0}</span></p>
             </div>
+
             {
-                data?.studentEnrolled.includes(userData?._id) && <>
-                  <Button text={'Buy Now'} css={'text-white'}/>
-                </>
+                !data?.studentEnrolled.includes(userData?._id) && userData?.accountType==='member' && <div>
+                  <Button text={'Buy Now'} css={'text-white border border-white rounded-sm hover:bg-white hover:text-lime-500 '}/>
+                </div>
             }
 
 

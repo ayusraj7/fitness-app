@@ -1,16 +1,18 @@
 import React,{useState} from 'react'
 import Button from '../../common/Button';
 import {useNavigate} from 'react-router-dom'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import Modal from '../../common/Modal'
+import {  setCartItems } from '../../../reducer/slices/cartSlice';
+import toast from 'react-hot-toast';
 
 const ProductCard = ({element}) => {
   
-  const {token}=useSelector(state=>state.user);
+  const {token,userData}=useSelector(state=>state.user);
   const[showModal,setModal]=useState(null);
 
 
-  
+  const dispatch=useDispatch();
   const navigate=useNavigate();
   const goto=()=>{
     console.log('hellow bhai bhai ');
@@ -34,9 +36,15 @@ const ProductCard = ({element}) => {
   }
   const gotoCart=(e)=>{
     e.stopPropagation();
+
    
     if(!token)
     {
+      if(userData?.accountType==='trainer')
+      {
+        toast.error(`You Have to make your own Member Account`);
+        return;
+      }
        setModal({
          text1:"You are not logged in!",
          text2:"Please login to add To Cart",
@@ -45,6 +53,8 @@ const ProductCard = ({element}) => {
          btn1Handler:()=>navigate('/login'),
          btn2Handler:()=>setModal(null),
        });  
+    }else{
+      dispatch(setCartItems(element));
     }
     
   }
