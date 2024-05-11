@@ -2,6 +2,7 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import {setToken,setUserData} from '../../../reducer/slices/userSlice'
+import {setCartItems,removeFromCart,resetCart} from '../../../reducer/slices/cartSlice'
 import {toast} from 'react-hot-toast';
 import { CgCloseO } from "react-icons/cg";
 import {setShowing} from '../../../reducer/slices/DropMenu'
@@ -22,6 +23,8 @@ const DropDownMenu = () => {
         localStorage.removeItem('cartItems');
         localStorage.removeItem('total');
         localStorage.removeItem('totalItems');
+        dispatch(resetCart());
+        
         toast.success("Logged Out");
         navigate('/');
     }
