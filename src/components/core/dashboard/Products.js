@@ -17,10 +17,10 @@ const Products = () => {
     let url='';
     if(userData?.accountType==='member')
     {
-        url=`https://fitness-app-0cqd.onrender.com/api/member-products/${id}`
+        url=process.env.REACT_APP_BACKEND_URL+`/api/member-products/${id}`
     }else
     {
-        url=`https://fitness-app-0cqd.onrender.com/api/products/${id}`
+        url=process.env.REACT_APP_BACKEND_URL+`/api/products/${id}`
     }
     const fetchProducts=async()=>{
         setLoading(true);

@@ -11,7 +11,7 @@ const Classes = () => {
     const fetchClasses=async()=>{
         setLoading(true);
         try{
-          const user=await axios.get('https://fitness-app-0cqd.onrender.com/api/getClasses');
+          const user=await axios.get(process.env.REACT_APP_BACKEND_URL+'/api/getClasses');
           setClasses(user.data.data);
         }catch(error){
           console.log('error',error);

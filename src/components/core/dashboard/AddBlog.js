@@ -37,7 +37,7 @@ const AddBlog = () => {
     const toastId=toast.loading('loading');
     try{
       
-      const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/createBlog',{
+      const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/createBlog',{
         name:formData.title,
         img:url,
         description:formData.description,

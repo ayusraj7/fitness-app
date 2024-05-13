@@ -10,7 +10,7 @@ const Products = () => {
 
     const fetchProducts=async()=>{
         try{                  
-                const user=await axios.get('https://fitness-app-0cqd.onrender.com/api/products');
+                const user=await axios.get(process.env.REACT_APP_BACKEND_URL+'/api/products');
                 if(!user.data.success)
                 {
                     throw new Error(user.data.message);

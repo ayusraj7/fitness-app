@@ -17,10 +17,10 @@ const ClassesCard = () => {
     let url='';
     if(userData?.accountType==='member')
     {
-        url=`https://fitness-app-0cqd.onrender.com/api/memberclasses/${id}`
+        url=process.env.REACT_APP_BACKEND_URL+`/api/memberclasses/${id}`
     }else
     {
-        url=`https://fitness-app-0cqd.onrender.com/api/getClasses/${id}`
+        url=process.env.REACT_APP_BACKEND_URL+`/api/getClasses/${id}`
     }
 
     const fetchClasses=async()=>{

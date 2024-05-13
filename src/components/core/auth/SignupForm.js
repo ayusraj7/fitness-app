@@ -53,7 +53,7 @@ const SignupForm = () => {
                     const data={...formData,accountType};                    
                     dispatch(setSignupData(data));
                     
-                    const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/send-otp',{email});
+                    const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/send-otp',{email});
 
                     if(!user.data.success)
                     {

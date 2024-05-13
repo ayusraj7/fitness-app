@@ -34,7 +34,7 @@ function App() {
   const{userData,token}=useSelector(state=>state.user);
   console.log('userData',userData);
   const id=userData?._id;
-  
+  console.log('ayush',process.env.REACT_APP_BACKEND_URL);
   
 
   return (

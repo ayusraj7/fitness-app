@@ -37,7 +37,7 @@ const AddProduct = () => {
     const toastId=toast.loading('loading');
     try{
     
-      const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/createProduct',{
+      const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/createProduct',{
         name:formData.name,
         description:formData.description,
         img:url,

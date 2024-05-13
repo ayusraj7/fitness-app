@@ -26,7 +26,7 @@ const UploadPhoto = ({setUrl}) => {
             formData.append('token',token);
             console.log('formData',formData);
            
-            const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/uploadPhoto',formData,{headers: {
+            const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/uploadPhoto',formData,{headers: {
                 "Content-Type": "multipart/form-data",
               }});
             console.log('user',user.data.url);

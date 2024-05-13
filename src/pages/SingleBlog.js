@@ -11,6 +11,7 @@ import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import moment from 'moment';
 
+
 const SingleBlog = () => {
     const {id}=useParams();
     const[loading,setLoading]=useState(false);
@@ -24,7 +25,7 @@ const SingleBlog = () => {
             
     try{     
             setLoading(true);
-            const user=await axios.get(`https://fitness-app-0cqd.onrender.com/api/blog/${id}`);
+            const user=await axios.get(process.env.REACT_APP_BACKEND_URL+`/api/blog/${id}`);
             
             setData(user.data.data[0]);
             setLoading(false);
@@ -55,7 +56,7 @@ const goto=()=>{
   return (
     <div className='bg-gray-200'>
     <div className=' h-auto lg:px-[100px] px-5 gap-8 pt-6 flex justify-between'>
-
+      
         
 
         {

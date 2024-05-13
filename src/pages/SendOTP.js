@@ -25,7 +25,7 @@ const SendOTP = () => {
       try{
         const toastId=toast.loading('loading');
         const email=signupData.email;
-        const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/send-otp',{email})
+        const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/send-otp',{email})
         console.log('user',user);
         toast.dismiss(toastId);
         toast.success(user.data.message);
@@ -40,7 +40,7 @@ const SendOTP = () => {
       const toastId=toast.loading('Loading');
       try{
         
-        const user=await axios.post('https://fitness-app-0cqd.onrender.com/api/signup',{
+        const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/signup',{
          name:signupData.name,
          mobileno:signupData.mobileno,
          accountType:signupData.accountType,
