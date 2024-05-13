@@ -3,7 +3,7 @@ import ReactStars from 'react-stars'
 import Button from '../../common/Button';
 import { MdOutlineDelete } from "react-icons/md";
 const CartCard = ({data}) => {
-  console.log('data',data);
+  
   return (
     <div className='flex flex-col sm:flex-row gap-3 justify-between border border-white h-[200px]  pr-5 items-center'>
 

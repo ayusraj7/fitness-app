@@ -60,7 +60,7 @@ const AddClass = () => {
     const toastId=toast.loading('loading');
     try{
     
-      const user=await axios.post('http://localhost:4000/api/createClass',{
+      const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/createClass',{
         name:formData.name,
         img:url,
         preference:formData.preference,

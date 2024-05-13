@@ -10,9 +10,9 @@ const BlogContainer = () => {
     
     const [blogData,setBlogData]=useState('');
     const[loading,setLoading]=useState(true);
-    console.log('process.env.',process.env.REACT_APP_BACKEND_URL)
+
     let url=process.env.REACT_APP_BACKEND_URL+'/api/blogs'
-    console.log('url',url);
+   
     if(id?.length>0)
     {
       url=process.env.REACT_APP_BACKEND_URL+`/api/blogs/${id}?`

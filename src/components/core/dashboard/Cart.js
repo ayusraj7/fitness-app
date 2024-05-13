@@ -7,7 +7,7 @@ import CartCard from './CartCard';
 
 const Cart = () => {
   const {cartItems,total,totalItems}=useSelector((state)=>state.cart);
-  console.log('cartItems',cartItems,total,totalItems);
+
   
   const navigate=useNavigate();
   return (

@@ -34,7 +34,7 @@ const PasswordChange = () => {
       setLoading(true);
       const toastId=toast.loading('loading');
       try{
-        const user=await axios.post('http://localhost:4000/api/updatePassword',{
+        const user=await axios.post(process.env.REACT_APP_BACKEND__URL+'/api/updatePassword',{
           currentPassword:formData.currentPassword,
           newPassword:formData.newPassword,
           token:token

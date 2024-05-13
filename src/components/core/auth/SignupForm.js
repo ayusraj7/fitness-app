@@ -61,7 +61,6 @@ const SignupForm = () => {
                     }
                     
                     toast.success(user.data.message);
-                    console.log('user',user);
                     navigate('/send-otp');
             }catch(error)
             {

@@ -46,7 +46,7 @@ const Settings = () => {
     const toastId=toast.loading('loading');
     try{
       console.log('url',url);
-      const user=await axios.post('http://localhost:4000/api/updatePhoto',{
+      const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/updatePhoto',{
         img_url:url,
         token:token
       });

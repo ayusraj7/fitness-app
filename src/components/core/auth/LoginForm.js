@@ -42,7 +42,6 @@ const LoginForm = () => {
                     });
                     const token=user.data.token;
                     const userData=user.data.user;
-                    console.log('user',userData);
 
                     
                     localStorage.setItem('token',JSON.stringify(token));
