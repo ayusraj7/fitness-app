@@ -76,6 +76,7 @@ exports.passwordChange=async(req,res)=>{
 
         const id=req.user.id;
         const{currentPassword,newPassword}=req.body;
+        console.log('req.body',req.body);
         console.log('currentPassword',currentPassword,newPassword);
         if(!currentPassword || !newPassword)
         {

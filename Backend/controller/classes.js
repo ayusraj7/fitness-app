@@ -119,6 +119,7 @@ exports.getMemberClasses=async(req,res)=>{
 
         const classes=await User.find({_id:id}).populate('classes').exec();
         
+        
         res.status(200).json({
             success:true,
             message:'Member Classes Fetched Successfully',

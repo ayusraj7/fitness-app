@@ -13,6 +13,7 @@ const PasswordChange = () => {
       "currentPassword":"",
       "newPassword":""
     })
+    
 
 
     const handleChange=(event)=>{
@@ -23,9 +24,11 @@ const PasswordChange = () => {
      }
 
     const changePassword=async(e)=>{
+      const url=process.env.REACT_APP_BACKEND_URL+'/api/updatePassword';
+      console.log('url',url);
       e.preventDefault();
-
-      if(formData.confirmPassword?.length===0 && formData.newPassword?.length===0)
+      
+      if(!formData.confirmPassword && !formData.newPassword)
       {
         toast.error('Fill all the Details');
         return;
@@ -33,16 +36,19 @@ const PasswordChange = () => {
       
       setLoading(true);
       const toastId=toast.loading('loading');
+     
+      
       try{
-        const user=await axios.post(process.env.REACT_APP_BACKEND__URL+'/api/updatePassword',{
+        const user=await axios.post(url,{
           currentPassword:formData.currentPassword,
           newPassword:formData.newPassword,
           token:token
         });
+        console.log('user',user);
         toast.success(user.data.message);
       }catch(error){
-        console.log('error',error);
-        toast.error('Error in Updating photo')
+        console.log('error--->',error);
+        toast.error('Error in Updating Password')
       }
       setLoading(false);
       toast.dismiss(toastId);
