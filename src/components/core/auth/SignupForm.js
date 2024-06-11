@@ -69,7 +69,7 @@ const SignupForm = () => {
                 toast.error(error.response.data.message);
             }
             toast.dismiss(toastId);
-        dispatch(setLoading(false));
+            dispatch(setLoading(false));
             
     }
 
@@ -89,7 +89,7 @@ const SignupForm = () => {
         }
     }
   return (
-    <div className='flex flex-col gap-0 px-6 w-[100%] overflow-hidden'>
+    <div className='flex lg:flex-col gap-0 px-6 w-[100%] overflow-hidden'>
         <div className='flex justify-between items-center gap-3'>
             <div className='text-2xl sm:text-4xl text-gray-600  font-inter'>SignUp
                 <div className='w-[35px] bg-violet-700 h-1'></div>
