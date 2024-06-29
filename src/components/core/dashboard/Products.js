@@ -27,7 +27,6 @@ const Products = () => {
         try{      
                 
                 const user=await axios.post(url,{token});
-                
                 if(userData?.accountType==='trainer')
                 {
                   setProductData(user?.data?.data);
@@ -42,7 +41,6 @@ const Products = () => {
 
         }catch(error)
         {
-            console.log('error',error);
             toast.error(`Products can't be fetched`);
         }
         setLoading(false);
@@ -75,11 +73,17 @@ const Products = () => {
                 </div>
 
                 {
-                    !products && <div className='text-white flex flex-col gap-10 items-center justify-center'>
-                        <h1 className='text-4xl font-extralight text-center'>No Products Purchased</h1>
-                        <Button text={'Buy Product'} css={`mt-[200px] border rounded-sm hover:bg-white hover:text-black`} onclick={()=>navigate('/shop')}/>
+                    !products && userData.accountType==='member' && <div className='text-white flex flex-col gap-8 items-center'>
+                        <h1 className='text-4xl font-extralight text-center'>No Classes Purchased</h1>
+                        <Button text={'Purchase Items'} css={`mt-[200px] border rounded-sm hover:bg-white hover:text-black`} onclick={()=>navigate('/shop')}/>
                     </div>
-                }
+              }
+              {
+                   products?.length<1 && userData.accountType==='trainer' && <div className='text-white flex flex-col gap-8 items-center'>
+                      <h1 className='text-4xl font-extralight text-center'>No Product Listed</h1>
+                      <Button text={'Create Item'} css={`mt-[200px] border rounded-sm hover:bg-white hover:text-black`} onclick={()=>navigate('/dashboard/addProduct')}/>
+                  </div>
+              }
 
             
         </div>

@@ -8,6 +8,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import {setUserData} from '../../../reducer/slices/userSlice'
 import PasswordChange from './PasswordChange';
+import EditProfile from './EditProfile';
 
 const Settings = () => {
   const{userData}=useSelector(state=>state.user);
@@ -36,7 +37,6 @@ const Settings = () => {
 
   const submitPhoto=async(e)=>{
     e.preventDefault();
-    console.log('formData',formData);
     if(!url)
     {
       toast.error('First Upload Image');
@@ -45,7 +45,6 @@ const Settings = () => {
     setLoading(true);
     const toastId=toast.loading('loading');
     try{
-      console.log('url',url);
       const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/updatePhoto',{
         img_url:url,
         token:token
@@ -54,10 +53,8 @@ const Settings = () => {
       dispatch(setUserData(user.data.data))
 
       toast.success(user.data.message);
-      console.log('user',user);
 
     }catch(error){
-      console.log('error',error);
       toast.error('Error in Updating photo')
     }
     setLoading(false);
@@ -90,7 +87,7 @@ const Settings = () => {
                 <p>{userData?.additionalDetails?.about?.length>0 ? userData?.additionalDetails?.about:'Fill the Details'}</p>
           </div>
 
-          <div className='rounded-md flex flex-col p-[5%] pb-10 px-[10%] gap-3 border border-neutral-500 bg-neutral-600'>
+          {/* <div className='rounded-md flex flex-col p-[5%] pb-10 px-[10%] gap-3 border border-neutral-500 bg-neutral-600'>
 
               <div className='flex justify-between mt-3'>
                   <h1 className=' text-2xl text-gray-300 font-extralight'>Personal Details</h1>            
@@ -131,7 +128,9 @@ const Settings = () => {
 
 
 
-          </div>
+          </div> */}
+
+          <EditProfile userData={userData}/>
 
           <PasswordChange/>
         </div>

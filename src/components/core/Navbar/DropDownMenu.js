@@ -40,7 +40,7 @@ const DropDownMenu = () => {
  
         {
             usertype==='member' && <>
-                <Link to='/cart'><p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Cart</p></Link>
+                <Link to='dashboard/cart'><p className=' hover:bg-neutral-700 hover:rounded-md hover:mr-1 transition-all duration-300 p-1 rounded-md px-2'>Cart</p></Link>
             </>    
         }
         {

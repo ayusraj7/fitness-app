@@ -75,9 +75,7 @@ exports.passwordChange=async(req,res)=>{
     try{
 
         const id=req.user.id;
-        const{currentPassword,newPassword}=req.body;
-        console.log('req.body',req.body);
-        console.log('currentPassword',currentPassword,newPassword);
+        const {name,email,mobileno,age,gender}=req.body;
         if(!currentPassword || !newPassword)
         {
            return res.status(400).json({
@@ -119,4 +117,8 @@ exports.passwordChange=async(req,res)=>{
             message:'Internal Server Error'
         })
     }
+}
+
+exports.profileUpdate=async(req,res)=>{
+
 }

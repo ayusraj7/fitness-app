@@ -18,15 +18,10 @@ const SingleClass = () => {
     const[data,setData]=useState();
     const[error,setError]=useState(false);
     const{userData}=useSelector(state=>state.user);
-    console.log('userData',userData);
-
-
-
   const fetchClass=async()=>{  
         try{     
                 setLoading(true);
                 const user=await axios.get(process.env.REACT_APP_BACKEND_URL+`/api/class/${id}`);
-                console.log('user',user);
                 if(!user.data.success)
                 {
                     throw new Error(error);
@@ -36,7 +31,6 @@ const SingleClass = () => {
                
         }catch(error)
         {
-            console.log('error-->',error);
             toast.error(`Blogs can't fetched`)
             setError(true);
         }

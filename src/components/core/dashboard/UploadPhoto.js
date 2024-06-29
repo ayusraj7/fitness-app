@@ -24,19 +24,16 @@ const UploadPhoto = ({setUrl}) => {
             let formData=new FormData();
             formData.append('file',file);
             formData.append('token',token);
-            console.log('formData',formData);
            
             const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/uploadPhoto',formData,{headers: {
                 "Content-Type": "multipart/form-data",
               }});
-            console.log('user',user.data.url);
             setUrl(user.data.url);
             
             
             toast.success('Image Uploaded Successfully');
 
         }catch(error){
-            console.log('error',error);
             toast.error(`Photo Not Uploaded.Try Again`)
         }
         setLoading(false);

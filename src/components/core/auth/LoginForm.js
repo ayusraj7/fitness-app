@@ -61,7 +61,6 @@ const LoginForm = () => {
 
             }catch(error)
             {   
-                console.log('error',error);
                 toast.error(error.response.data.message);
             }
             dispatch(setLoading(false));
@@ -96,7 +95,7 @@ const LoginForm = () => {
                 </div>
                 
             </div>
-            <p className='text-violet-600 text-md'>Forgot Password?</p>
+            <p className='text-violet-600 text-md' onClick={()=>navigate('/forgetPassword')}>Forgot Password?</p>
 
             <button disabled={loading?true:false} className='bg-violet-700 cursor-pointer rounded-md p-3 text-white font-medium transition-all duration-200 hover:bg-violet-600 hover:text-xl' >{loading?'Loading':'Login'}</button>
         </form>

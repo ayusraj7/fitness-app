@@ -19,7 +19,6 @@ const Products = () => {
 
         }catch(error)
         {
-            console.log('error',error);
             toast.error(`Products can't be fetched`);
         }
 }

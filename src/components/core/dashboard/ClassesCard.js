@@ -9,11 +9,12 @@ import { useNavigate } from 'react-router-dom'
 
 
 const ClassesCard = () => {
-    const[classes,setClasses]=useState(null);
+    const[classes,setClasses]=useState([]);
     const[loading,setLoading]=useState(false);
     const{userData,token}=useSelector(state=>state.user);
     const navigate=useNavigate();
     const id=userData._id;
+    
     let url='';
     if(userData?.accountType==='member')
     {
@@ -35,7 +36,6 @@ const ClassesCard = () => {
           }
           
         }catch(error){
-          console.log('error',error);
           toast.error('Error in Fetching Classes')
         }
         setLoading(false);
@@ -60,12 +60,20 @@ const ClassesCard = () => {
                     })
                 }
             </div>
+  
             {
-                    !classes && <div className='text-white flex flex-col gap-8 items-center'>
+                   
+                    !classes && userData.accountType==='member' && <div className='text-white flex flex-col gap-8 items-center'>
                         <h1 className='text-4xl font-extralight text-center'>No Classes Purchased</h1>
-                        <Button text={'Buy Classes'} css={`mt-[200px] border rounded-sm hover:bg-white hover:text-black`} onclick={()=>navigate('/shop')}/>
+                        <Button text={'Join Classes'} css={`mt-[200px] border rounded-sm hover:bg-white hover:text-black`} onclick={()=>navigate('/shop')}/>
                     </div>
-                }
+              }
+              {
+                   classes?.length<1 && userData.accountType==='trainer' && <div className='text-white flex flex-col gap-8 items-center'>
+                      <h1 className='text-4xl font-extralight text-center'>No Classes Created</h1>
+                      <Button text={'Create Class'} css={`mt-[200px] border rounded-sm hover:bg-white hover:text-black`} onclick={()=>navigate('/dashboard/addClass')}/>
+                  </div>
+              }
 
        
     </div>

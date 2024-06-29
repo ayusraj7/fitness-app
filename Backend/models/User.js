@@ -31,11 +31,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       ref: "AdditionalDetails",
     },
-    token: {
+    resettoken: {
       type: String,
+      default:''
     },
     resetPasswordExpires: {
       type: Date,
+      default:''
     },
     classes:[{
       type:mongoose.Schema.Types.ObjectId,

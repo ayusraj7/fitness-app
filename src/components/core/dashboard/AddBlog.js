@@ -27,7 +27,6 @@ const AddBlog = () => {
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    console.log('formData',formData);
     if(!url)
     {
       toast.error('First Upload Image');
@@ -44,10 +43,8 @@ const AddBlog = () => {
         token:token
       });
       toast.success(user.data.message);
-      console.log('user',user);
 
     }catch(error){
-      console.log('error',error);
       toast.error('Error in Creating Blog')
     }
     setLoading(false);

@@ -26,12 +26,10 @@ const SendOTP = () => {
         const toastId=toast.loading('loading');
         const email=signupData.email;
         const user=await axios.post(process.env.REACT_APP_BACKEND_URL+'/api/send-otp',{email})
-        console.log('user',user);
         toast.dismiss(toastId);
         toast.success(user.data.message);
       }catch(error)
       {
-        console.log('error',error);
         toast.error('Error in Sending OTP');
       }
     }
@@ -48,7 +46,6 @@ const SendOTP = () => {
          password:signupData.password,
          otp:otp,
         })
-        console.log('user',user);
         if(!user.data.success)
         {
             throw new Error(user.data.message);
@@ -60,7 +57,6 @@ const SendOTP = () => {
 
       }catch(error)
       {
-        console.log('error',error);
          toast.error(error.response.data.message);
       }
       toast.dismiss(toastId);

@@ -2,7 +2,6 @@ const nodemailer = require("nodemailer")
 require('dotenv').config();
 
 const mailSender = async (email, title, body) => {
-   
   try {
     let transporter = nodemailer.createTransport({
       service:"Gmail",
@@ -20,7 +19,7 @@ const mailSender = async (email, title, body) => {
       subject: `${title}`,
       html:`${body}`,
   })
-   
+    
     return info
   } catch (error) {
     console.log('error-->',error)

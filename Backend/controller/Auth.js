@@ -4,6 +4,10 @@ const OTP=require('../models/OTP')
 const AdditionalDetails=require('../models/AdditionalDetails')
 require('dotenv').config();
 const jwt=require('jsonwebtoken')
+const mailSender=require('../config/mailSender');
+
+const {v4:uuidv4} = require('uuid');
+const { isObjectIdOrHexString } = require('mongoose');
 
 
 exports.signup = async (req, res) => {
@@ -97,7 +101,8 @@ exports.signup = async (req, res) => {
       }
   
       // Find user with provided email
-      const user = await User.findOne({ email }).populate("additionalDetails")
+      const user = await User.findOne({ email }).populate("additionalDetails");
+      console.log('user',user);
       
       // If user not found with provided email
       if (!user) {
@@ -161,6 +166,81 @@ exports.signup = async (req, res) => {
       res.status(500).json({
         success:false,
         message:'Internal Server Error'
+      })
+    }
+  }
+
+  exports.generateToken=async(req,res)=>{
+    try{
+      const {email}=req.body;
+      const token=uuidv4();
+      const user=await User.findOne({email:email});  
+      if(!user)
+      {
+        return res.status(404).json({
+          success:false,
+          message:'User Not Found'
+        })
+      }
+      const newExpirationTime = new Date(Date.now() + 2 * 60 * 1000);
+      const userDetails=await User.findByIdAndUpdate({_id:user._id},{resettoken:token,resetPasswordExpires:newExpirationTime},{new:true});
+      
+    
+      await mailSender(email,`Password Reset Link`,`<link>localhost:3000/resetPassword/${token}</link>`);
+      return res.status(200).json({
+        success:true,
+        message:'resent link sent successfully',
+      })
+      
+    }catch(error){
+      console.log('error--->',error);
+      res.status(500).json({
+        success:false,
+        message:error.message,
+        error:error
+      })
+    }
+  }
+
+  exports.resetPassword=async(req,res)=>{
+    try{
+      const {id}=req.params;
+      const {newPassword}=req.body;
+      const user=await User.findOne({resettoken:id});
+      if(!user)
+      {
+        return res.status(404).json({
+          success:false,
+          message:"User Not Found'"
+        })
+      }
+      const diff=(user.resetPasswordExpires-new Date())/(1000 * 60);
+      if(user.resettoken !== id && diff>0)
+      {
+        return res.status(401).json({
+          success:false,
+          message:'Invalid Token or Expired'
+        })
+      }
+    
+      // Reset password
+      user.password = await bcrypt.hash(newPassword, 10)
+      user.resettoken = null;
+      user.resetTokenExpiration = null;
+
+      await user.save();
+    
+      res.status(200).send({
+        success:true,
+        message:'Password reset successfully',
+      });
+      
+    }catch(error){
+      console.log('error--->',error);
+      res.status(500).json({
+        success:false,
+        message:error.message,
+        error:'Internal server error'
       })
     }
   }

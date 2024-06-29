@@ -47,10 +47,7 @@ const AddProduct = () => {
 
       
       toast.success(user.data.message);
-      console.log('user',user);
-
     }catch(error){
-      console.log('error',error);
       toast.error('Error in Creating Blog')
     }
     setLoading(false);

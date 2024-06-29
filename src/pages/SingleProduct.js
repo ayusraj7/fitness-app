@@ -24,13 +24,10 @@ const SingleProduct = () => {
         try{     
                 dispatch(setLoading(true));
                 const user=await axios.get(process.env.REACT_APP_BACKEND_URL+`/api/product/${id}`);
-                console.log('user',user);
                 setData(user.data.data[0]);
                 dispatch(setLoading(false));
         }catch(error)
         {
-            
-            console.log('error',error);
             toast.error(`Blogs can't fetched`)
             setError(true);
         }

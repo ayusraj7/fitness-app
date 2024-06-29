@@ -7,8 +7,6 @@ import CartCard from './CartCard';
 
 const Cart = () => {
   const {cartItems,total,totalItems}=useSelector((state)=>state.cart);
-
-  
   const navigate=useNavigate();
   return (
     <div className='w-full  flex flex-col'>

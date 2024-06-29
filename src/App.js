@@ -27,15 +27,14 @@ import Settings from './components/core/dashboard/Settings'
 import PurchasedItems from './components/core/dashboard/PurchasedItems';
 import EnrolledClasses from './components/core/dashboard/EnrolledClasses';
 import SingleClass from './pages/SingleClass';
+import ForgetPassword from './pages/ForgetPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   const navigate=useNavigate();
 
   const{userData,token}=useSelector(state=>state.user);
-  console.log('userData',userData);
   const id=userData?._id;
-  console.log('ayush',process.env.REACT_APP_BACKEND_URL);
-  
 
   return (
     <div className='w-screen  flex-col relative p-0 m-0'>
@@ -53,6 +52,8 @@ function App() {
         <Route path='/blog/:id' element={<SingleBlog/>}></Route>
         <Route path='/product/:id' element={<SingleProduct/>}></Route>
         <Route path='/class/:id' element={<SingleClass/>}></Route>
+        <Route path='/forgetPassword' element={<ForgetPassword/>}></Route>
+        <Route path= '/resetPassword/:id' element={<ResetPassword/>}/>
        
         <Route element={<Dashboard/>}>
 

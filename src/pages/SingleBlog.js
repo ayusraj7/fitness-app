@@ -18,9 +18,6 @@ const SingleBlog = () => {
     const[data,setData]=useState();
     const navigate=useNavigate();
     const{userData}=useSelector(state=>state.user);
-  console.log('userData',userData);
-
-
   const fetchBlog=async()=>{
             
     try{     
@@ -31,7 +28,6 @@ const SingleBlog = () => {
             setLoading(false);
     }catch(error)
     {
-        console.log('error',error);
         toast.error(`Blogs can't fetched`)
     }
     setLoading(false);

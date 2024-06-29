@@ -17,7 +17,7 @@ const cartSlice = createSlice({
                 state.total=state.total+value.payload.price;
                 state.totalItems=state.totalItems+1;  
 
-                localStorage.setItem("cart", JSON.stringify(state.cart))
+                localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
                 localStorage.setItem("total", JSON.stringify(state.total))
                 localStorage.setItem("totalItems", JSON.stringify(state.totalItems))
 
@@ -32,9 +32,9 @@ const cartSlice = createSlice({
             {
                 const item=action.payload;
                 state.cartItems.filter((element)=>element._id===item._id);
-                console.log(state.cartItems.filter((element)=>element._id===item._id));
                 state.total=state.total-action.payload.price;
                 state.totalItems=state.totalItems-1;
+                toast.success('Items Removed Successfully')
             }
             
         },
@@ -45,6 +45,7 @@ const cartSlice = createSlice({
             localStorage.removeItem("cartItems")
             localStorage.removeItem("total")
             localStorage.removeItem("totalItems")
+            toast.success('Cart reset Successfully')
         }
     }
 })

@@ -28,7 +28,6 @@ const AddClass = () => {
       const user=await axios.get(process.env.REACT_APP_BACKEND_URL+'/api/getCategory');
       setCategories(user.data.data);
     }catch(error){
-      console.log('error',error);
       toast.error('Error in Creating Blog')
     }
     setLoading(false);
@@ -77,7 +76,6 @@ const AddClass = () => {
       
 
     }catch(error){
-      console.log('error',error);
       toast.error('Error in Creating Blog')
     }
     setLoading(false);

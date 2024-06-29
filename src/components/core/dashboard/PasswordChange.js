@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import Button from '../../common/Button';
 import toast from 'react-hot-toast'
@@ -25,7 +25,6 @@ const PasswordChange = () => {
 
     const changePassword=async(e)=>{
       const url=process.env.REACT_APP_BACKEND_URL+'/api/updatePassword';
-      console.log('url',url);
       e.preventDefault();
       
       if(!formData.confirmPassword && !formData.newPassword)
@@ -44,10 +43,8 @@ const PasswordChange = () => {
           newPassword:formData.newPassword,
           token:token
         });
-        console.log('user',user);
         toast.success(user.data.message);
       }catch(error){
-        console.log('error--->',error);
         toast.error('Error in Updating Password')
       }
       setLoading(false);

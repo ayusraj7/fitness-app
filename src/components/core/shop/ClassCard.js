@@ -1,10 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../common/Button'
+import { useSelector } from 'react-redux'
 
 const ClassCard = ({element}) => {
   
-  
+  const {userData}=useSelector((state)=>state.user);
   const navigate=useNavigate();
   const goto=()=>{
     navigate(`/class/${element._id}`)
@@ -27,7 +28,12 @@ const ClassCard = ({element}) => {
             <p className='text-sm text-pink-300'>{element.duration}</p>
             <p className='text-lime-500 text-xl'>₹{element.price}</p>
         </div>
-        <Button wi={'w-fit'} text={'Book Now'} css={'bg-transparent border border-yellow-300 hover:border-blue-200 hover:text-gray-200 h-fit text-yellow-500 font-bold text-xl'}/>
+       
+        {
+           (!userData || userData?.accountType==='member') && <Button wi={'w-fit'} text={'Book Now'} css={'bg-transparent border border-blue-200 hover:border-blue-200 hover:text-gray-200 h-fit text-slate-300 font-bold text-xl'}/>
+        }
+        
+        
     </div>
   )
 }

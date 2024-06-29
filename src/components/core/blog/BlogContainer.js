@@ -28,7 +28,6 @@ const BlogContainer = () => {
 
             }catch(error)
             {
-                console.log('error',error);
                 toast.error(`Blogs can't fetched`)
             }
             
@@ -49,6 +48,8 @@ const BlogContainer = () => {
         {
           loading && <Loading text={'Blogs'}/>
         }
+        
+        
        
        
         

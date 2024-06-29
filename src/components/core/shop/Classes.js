@@ -14,7 +14,6 @@ const Classes = () => {
           const user=await axios.get(process.env.REACT_APP_BACKEND_URL+'/api/getClasses');
           setClasses(user.data.data);
         }catch(error){
-          console.log('error',error);
           toast.error('Error in Fetching Classes')
         }
         setLoading(false);
