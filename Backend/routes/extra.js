@@ -6,5 +6,5 @@ const{auth}=require('../Middleware/auth');
 router.post('/uploadPhoto',auth,uploadPhoto);
 router.post('/updatephoto',auth,updatePhoto);
 router.post('/updatePassword',auth,passwordChange);
-router.post('/update-profile',auth,PasswordChange)
+router.post('/update-profile',auth,passwordChange)
 module.exports=router;

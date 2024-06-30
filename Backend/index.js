@@ -31,12 +31,12 @@ const middRoutes=require('./routes/product');
 app.use('/api',middRoutes);
 const blogRoutes=require('./routes/Blog');
 app.use('/api',blogRoutes);
-// const uploadPhotoRoute=require('./routes/extra');
-// app.use('/api',uploadPhotoRoute);
-// const categoryRoute=require('./routes/category');
-// app.use('/api',categoryRoute);
-// const classesRoutes=require('./routes/classes');
-// app.use('/api',classesRoutes);
+const uploadPhotoRoute=require('./routes/extra');
+app.use('/api',uploadPhotoRoute);
+const categoryRoute=require('./routes/category');
+app.use('/api',categoryRoute);
+const classesRoutes=require('./routes/classes');
+app.use('/api',classesRoutes);
 
 // Testing the server
 app.get("/", (req, res) => {

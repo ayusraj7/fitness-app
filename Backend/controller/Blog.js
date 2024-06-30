@@ -67,6 +67,7 @@ exports.getBlog=async(req,res)=>{
     try{
         //create blog 
         const id=req.params.id;
+        console.log('id',id);
         const user=await Blog.find({_id:id}).populate('creator')
         
         res.status(200).json({
@@ -91,6 +92,7 @@ exports.userBlogs=async(req,res)=>{
     try{
         //create blog 
         const user_id=req.params.id;
+        
         
         const user=await Blog.find({creator: user_id}).exec();
         console.log('user',user);

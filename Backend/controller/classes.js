@@ -70,9 +70,10 @@ exports.createClass = async(req,res)=>{
 
 exports.getClasses=async(req,res)=>{
     try{
+        console.log('inside this ');
         const classes=await Class.find({}).populate('instructor');
         
-        
+        console.log('classes');
 
         return res.status(202).json({
             success:true,
