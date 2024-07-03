@@ -46,10 +46,10 @@ app.get("/", (req, res) => {
 	});
 });
 
-// const cron=require('node-cron');
-// cron.schedule("* */10 * * * *",()=>{
-// 	console.log(new Date());
-// })
+const cron=require('node-cron');
+cron.schedule("* * * */10 * *",()=>{
+	console.log(new Date());
+})
 
 app.listen(PORT, () => {
 	console.log(`App is listening at ${PORT}`);
