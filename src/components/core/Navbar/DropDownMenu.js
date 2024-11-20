@@ -46,11 +46,6 @@ const DropDownMenu = () => {
     <div
       className={`flex absolute top-0 right-[2%] bg-neutral-800 border-2  border-neutral-700 h-[170px] w-[160px] rounded-md mt-[20px] pt-2 pl-3 opacity-90 flex-col`}
     >
-      <CgCloseO
-        className="text-white absolute right-4 top-3 "
-        onClick={closedrop}
-      />
-
       {usertype === "member" && (
         <>
           <Link to="dashboard/cart">
