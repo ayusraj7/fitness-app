@@ -25,7 +25,7 @@ const Navbar = () => {
       className="shadow-gray-700 shadow-sm w-full mx-auto z-[100] fixed top-0 h-[60px] bg-gray-900 text-white"
       onClick={(e) => setShow(false)}
     >
-      <div className="max-w-[1024px] relative w-10/12 h-full mx-auto text-xl flex justify-around items-center">
+      <div className="max-w-[1024px] relative w-10/12 h-full mx-auto text-xl flex justify-between sm:justify-around items-center">
         <div className="flex items-center text-white bg-transparent">
           <Link to="/">
             <CgGym size={30} />
@@ -64,11 +64,7 @@ const Navbar = () => {
           </Link>
         </div>
         {!token && (
-          <div
-            className={`${
-              !show ? "flex" : "hidden"
-            }  justify-between gap-4 sm:gap-2 `}
-          >
+          <div className={`sm:flex hidden justify-between gap-4 sm:gap-2 `}>
             <Link
               to="/login"
               className="border border-gray-700 transition-all duration-200 p-1  hover:scale-95 rounded-md hover:text-gray-200 px-2 bg-gradient-to-r from-indigo-500 to-pink-500"
@@ -125,20 +121,24 @@ const Navbar = () => {
             About
           </Link>
           <div className="flex gap-3 px-2 ">
-            <Link
-              to="/login"
-              onClick={() => setShow(false)}
-              className="border border-gray-700 transition-all duration-200 p-1  hover:scale-95 rounded-md hover:text-gray-200 px-2 bg-gradient-to-r from-indigo-500 to-pink-500"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              onClick={() => setShow(false)}
-              className="border border-gray-700 transition-all duration-200 p-1  hover:scale-95 rounded-md hover:text-gray-200 px-2 bg-gradient-to-r from-indigo-500 to-pink-500"
-            >
-              SignUp
-            </Link>
+            {!token && (
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setShow(false)}
+                  className="border border-gray-700 transition-all duration-200 p-1  hover:scale-95 rounded-md hover:text-gray-200 px-2 bg-gradient-to-r from-indigo-500 to-pink-500"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={() => setShow(false)}
+                  className="border border-gray-700 transition-all duration-200 p-1  hover:scale-95 rounded-md hover:text-gray-200 px-2 bg-gradient-to-r from-indigo-500 to-pink-500"
+                >
+                  SignUp
+                </Link>
+              </>
+            )}
           </div>
         </div>
 

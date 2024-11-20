@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import Button from '../../../components/common/Button'
+import Button from "../../../components/common/Button";
 import { useNavigate } from "react-router-dom";
-const EditProfile = ({userData}) => {
-    const navigate=useNavigate();
-    const[loading,setLoading]=useState(false);
+const EditProfile = ({ userData }) => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   return (
     <div className="rounded-md flex flex-col p-[5%] pb-10 px-[10%] gap-3 border border-neutral-500 bg-neutral-600">
       <div className="flex justify-between mt-3">
@@ -24,21 +24,37 @@ const EditProfile = ({userData}) => {
           <p>{userData?.email}</p>
         </div>
         <div className="flex flex-col gap-1 ">
-          <label htmlFor="mobileno" className="text-gray-400 text-sm">Mobile No</label>
-          <input type="number" name="mobileno" className=' py-1 rounded-sm border-none focus:outline-none px-3 text-xl text-orange-600' id="mobileno" />
+          <label htmlFor="mobileno" className="text-gray-400 text-sm">
+            Mobile No
+          </label>
+          <input
+            type="number"
+            name="mobileno"
+            className=" py-1 rounded-sm border-none focus:outline-none px-3 text-xl text-orange-600"
+            id="mobileno"
+          />
         </div>
       </div>
 
       <div className="flex md:flex-row flex-col justify-between">
         <div>
           <p className="text-gray-400 text-sm">Age</p>
-          <input type="number" name="age" id="age" className="py-1  px-3 w-full text-gray-600 text-sm" />
+          <input
+            type="number"
+            name="age"
+            id="age"
+            className="py-1  px-3 w-full text-gray-600 text-sm"
+          />
         </div>
         <div className="flex gap-[4px] flex-col mt-2 ">
-            <p className="text-gray-400 text-sm ">Gender</p>
-          <select name="Gender" className="py-1  px-3  text-gray-600 text-sm" id="Gender">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+          <p className="text-gray-400 text-sm ">Gender</p>
+          <select
+            name="Gender"
+            className="py-1  px-3  text-gray-600 text-sm"
+            id="Gender"
+          >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
       </div>
@@ -49,7 +65,9 @@ const EditProfile = ({userData}) => {
           css={
             " bg-orange-400 py-1  hover:bg-white hover:text-blue-900 rounded-sm "
           }
-          onclick={()=>{console.log('update')}}
+          onclick={() => {
+            console.log("update");
+          }}
         />
         <Button
           text={"Cancel"}
