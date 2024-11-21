@@ -35,11 +35,11 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const toastId = toast.loading("loading");
     if (password !== confirmPassword) {
       toast.error("Passwords Do Not Match");
       return;
     }
+    const toastId = toast.loading("loading");
     dispatch(setLoading(true));
     try {
       const data = { ...formData, accountType };
