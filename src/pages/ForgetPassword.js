@@ -31,15 +31,15 @@ const ForgetPassword = () => {
   });
 
   return (
-    <div className="bg-gray-900  h-[100vh] md:h-[90vh] flex justify-center items-center">
-      <div className=" shadow-gray-300  bg-gray-900 rounded-md text-white h-[300px] w-[90%] sm:w-[50%] mx-auto flex flex-col gap-2  justify-center">
+    <div className="bg-gray-900  h-[calc(100vh-60px)] flex justify-center items-center w-[100%]">
+      <div className=" w-[80%] md:w-[40%] items-center justify-center">
         <h1 className="text-3xl text-lime-400 px-3">Forget Password</h1>
         <p className="text-gray-300 px-3">Enter Your Email</p>
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col gap-2 py-2 px-3 "
+          className="flex flex-col gap-2 justify-center w-[100%] px-3 mt-5"
         >
-          <label htmlFor="email">
+          <label htmlFor="email" className="text-white">
             Email <span className="text-red-700">*</span>
           </label>
           <input

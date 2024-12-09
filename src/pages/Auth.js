@@ -26,7 +26,7 @@ const Auth = () => {
             <LoginForm />
             <p className="text-normal w-[80%] px-8 mt-3 mb-2 ">
               Don't have an account ?
-              <span className="text-violet-600 " onClick={goToPage}>
+              <span className="text-violet-600 cursor-pointer" onClick={goToPage}>
                 {" "}
                 Signup now{" "}
               </span>
@@ -38,7 +38,7 @@ const Auth = () => {
             <SignupForm />
             <p className="text-normal w-[80%] px-6 mt-3 mb-2 ">
               Not logged In ?
-              <span className="text-violet-600 " onClick={goToPage}>
+              <span className="text-violet-600 cursor-pointer" onClick={goToPage}>
                 {" "}
                 Login{" "}
               </span>
