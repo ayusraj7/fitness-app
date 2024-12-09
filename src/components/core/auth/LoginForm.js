@@ -35,7 +35,6 @@ const LoginForm = () => {
     },
     validationSchema: validationSchema1,
     onSubmit: async (values) => {
-      console.log("formik", formik.errors);
       let params = {
         email: values?.email,
         password: values?.password,
@@ -94,7 +93,7 @@ const LoginForm = () => {
 
         <div className="text-xl relative flex gap-2 border-b-2 py-2 item-center">
           <MdLock></MdLock>
-          <div className="flex relative justify-between">
+          <div className="flex relative w-[100%] justify-between">
             <input
               className="[all:unset] w-full"
               type={showpassword ? "text" : "password"}
