@@ -8,9 +8,14 @@ import {
 import { Link } from "react-router-dom";
 import { CgGym } from "react-icons/cg";
 
-const Footer = () => {
+const Footer = ({ bgColor }) => {
   return (
-    <div className="h-auto lg:h-[500px] text-white bg-transparent  ">
+    <div
+      className={`h-auto lg:h-[500px] text-white`}
+      style={{
+        background: bgColor ? bgColor : "transparent",
+      }}
+    >
       <div className="h-full lg:pb-0 pb-6  pt-12 flex justify-between  flex-wrap w-[calc(100vw-17vw)] mx-auto gap-8 sm:gap-0">
         <div className="sm:w-[300px] flex flex-col gap-7 sm:items-start items-center">
           <Link to="/">

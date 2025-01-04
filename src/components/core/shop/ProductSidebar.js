@@ -40,7 +40,7 @@ const ProductSidebar = ({ data }) => {
   };
   return (
     <>
-      <div className="flex pb-6 h-auto flex-col gap-4 px-6 bg-[rgb(253,253,245)]  sm:w-[35%] lg:w-[23%] rounded-lg">
+      <div className="flex pb-6 h-[80vh] flex-col gap-4 px-6 bg-[rgb(253,253,245)]  sm:w-[35%] lg:w-[23%] rounded-lg">
         <div className="hidden sm:flex gap-1 border-y mt-5 w-[50%] mx-auto items-center text-gray-500 pb-1 ">
           <h1 className="text-center  mx-auto text-2xl font-extralight">
             {data?.name}

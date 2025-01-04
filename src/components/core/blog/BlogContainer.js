@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "../../../pages/Loading";
 import toast from "react-hot-toast";
-import { useLocation, useSearchParams, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import BlogCard from "./BlogCard";
 const BlogContainer = () => {
   const id = useLocation().search.substr(2);
@@ -20,7 +20,6 @@ const BlogContainer = () => {
     try {
       setLoading(true);
       const user = await axios.get(url);
-
       setBlogData(user.data.data);
       setLoading(false);
     } catch (error) {
@@ -33,7 +32,7 @@ const BlogContainer = () => {
   }, []);
 
   return (
-    <div className=" h-full flex mt-[50px] flex-wrap justify-start gap-[50px] mb-10">
+    <div className="h-full w-[90%] justify-center mx-auto flex mt-[50px] flex-wrap gap-[50px] mb-10">
       {blogData.length > 0 &&
         blogData.map((data, index) => <BlogCard data={data} key={index} />)}
       {loading && <Loading text={"Blogs"} />}

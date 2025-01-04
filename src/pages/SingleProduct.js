@@ -45,7 +45,7 @@ const SingleProduct = () => {
 
   return (
     <div className="bg-gradient-to-r from-pink-500 to-yellow-500 ">
-      <div className=" h-auto gap-3 px-3 lg:px-[100px] pt-11 flex sm:flex-row flex-col justify-evenly">
+      <div className="mb-10 min-h-[88vh] h-auto gap-3 px-3 lg:px-[100px] pt-11 flex sm:flex-row flex-col justify-evenly">
         <div className=" text-white flex flex-col gap-3 sm:w-[50%] lg:w-[60%]">
           <img
             src={data?.img}
@@ -62,7 +62,10 @@ const SingleProduct = () => {
                 </span>{" "}
                 <span className="text-lime-400">{data?.price}</span>
               </p>
-              <p className="text-xl font-bold text-blue-900">
+              <p className="text-xl font-medium text-gray-500">
+                <span className="text-normal font-normal text-white">
+                  Seller:{" "}
+                </span>
                 {data?.seller?.name}
               </p>
             </div>
@@ -73,7 +76,7 @@ const SingleProduct = () => {
         </div>
         <ProductSidebar data={data} />
       </div>
-      <Footer />
+      <Footer bgColor={"#424242"} />
     </div>
   );
 };
