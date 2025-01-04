@@ -3,7 +3,7 @@ import React from "react";
 const Workout = () => {
   return (
     <div className="bg-[#0a0a0a] text-white w-full lg:h-[75%] pt-4 sm:px-5 ">
-      <div className="w-10/12 md:w-8/12 mx-auto  h-full flex flex-col  gap-3 sm:p-2">
+      <div className="w-10/12 md:w-9/12 mx-auto h-full flex flex-col gap-3 sm:p-2">
         {/* headline */}
         <div className=" border-[#ab9999] border-b-2 ">
           <h1 className="font-Inter text-[#f7ffff] text-5xl font-semibold my-3">
@@ -13,7 +13,7 @@ const Workout = () => {
         </div>
 
         {/* body */}
-        <div className="bg-transparent font-mono text-zinc-300 flex flex-col gap-3 lg:w-[80%] mx-auto  text-sm sm:text-[17px]  mt-2 ">
+        <div className="bg-transparent font-mono text-zinc-300 flex flex-col gap-3 lg:w-[90%] mt-[50px] mx-auto  text-sm sm:text-[17px]">
           <p className="">
             There is not limit to what you are capable of, physically and
             mentally. The Limit is about perseverance. The goal is to push

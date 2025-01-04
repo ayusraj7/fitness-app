@@ -30,7 +30,7 @@ const Classes = () => {
   }
   return (
     <div className="bg-[#0a0a0a]">
-      <div className="flex w-10/12 gap-11 max-w-[1024px] mx-auto flex-col">
+      <div className="flex w-9/12 gap-11  mx-auto flex-col">
         {/* 1st div  */}
         <div className="flex flex-col gap-3 mt-5">
           <div className=" border-[#ab9999] border-b-2 ">
@@ -44,7 +44,7 @@ const Classes = () => {
           </p>
         </div>
         {/* 2nd div */}
-        <div className="text-white flex  gap-6 pb-11 flex-col">
+        <div className="text-white flex  gap-6 w-[90%] mx-auto pb-11 flex-col">
           {classes?.map((element, index) => {
             return <ClassCard element={element} key={index} />;
           })}

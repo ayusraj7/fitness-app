@@ -20,8 +20,8 @@ const founder = [
 
 const Founder = () => {
   return (
-    <div className="bg-[#0a0a0a] flex flex-col  text-white w-full sm:p-5 ">
-      <div className="w-11/12 md:w-8/12 mx-auto h-full  flex flex-col  gap-3 p-2">
+    <div className="bg-[#0a0a0a] flex flex-col text-white w-full sm:p-5 ">
+      <div className="w-11/12 md:w-9/12 mx-auto h-full flex flex-col gap-3 p-2">
         {/* headline */}
         <div className=" border-[#6b6060] border-b-2 ">
           <h1 className="font-Inter text-[#f7ffff] text-5xl font-semibold my-3">

@@ -41,20 +41,20 @@ const SingleBlog = () => {
   };
 
   return (
-    <div className="bg-gray-200">
-      <div className=" h-auto lg:px-[100px] px-5 gap-8 pt-6 flex justify-between">
+    <div className="bg-[#F2F1EB]">
+      <div className=" min-h-[90vh] lg:px-[100px] px-5 gap-8 pt-6 flex justify-between sm:mb-8">
         {loading ? (
-          <Loading text={"Blog"} bgpresent={true} />
+          <Loading text={"Blog"} bgpresent={false} />
         ) : (
           <>
-            <div className=" text-white flex flex-col gap-3 items-center md:w-[65%] lg:w-[80%]">
+            <div className="text-white flex flex-col gap-3 md:w-[65%] lg:w-[80%]">
               <img
                 src={data?.img}
                 alt=""
-                className=" hover:shadow-white hover:shadow-sm  h-[360px] w-full rounded-lg"
+                className="hover:shadow-white hover:shadow-sm h-[200px] sm:h-[360px] w-full rounded-lg"
               />
-              <div className=" mt-5 flex justify-between w-full  ">
-                <h1 className="text-blue-800 text-4xl">{data?.name}</h1>
+              <div className=" sm:mt-5 flex justify-between w-full">
+                <h1 className="text-[#F97300] text-4xl">{data?.name}</h1>
                 {userData?.accountType === "trainer" &&
                   userData?._id === data?.creator?._id && (
                     <div className="flex gap-1 items-center ">
@@ -63,22 +63,22 @@ const SingleBlog = () => {
                     </div>
                   )}
               </div>
-              <div className="mt-8 flex flex-col gap-6 ">
-                <div className="flex justify-between w-[95%] ">
-                  <p className="text-orange-500 text-xl">
+              <div className="sm:mt-8 flex flex-col gap-6">
+                <div className="flex justify-between">
+                  <p className="text-[#32012F] text-xl">
                     Author:{" "}
                     <span
                       onClick={goto}
-                      className="rounded-md font-bold  hover:text-black text-blue-900"
+                      className="rounded-md font-medium hover:text-black text-[#F97300]"
                     >
                       {data?.creator?.name}
                     </span>
                   </p>
-                  <p className="text-xl text-orange-600">
+                  <p className="text-xl text-[#32012F]">
                     {moment(data?.createdAt).fromNow()}
                   </p>
                 </div>
-                <p className="text-[20px] text-[#666666] md:w-[85%]">
+                <p className="text-[16px] sm:text-[20px] text-blue-900 md:w-[85%]">
                   {data?.description}
                 </p>
               </div>
@@ -87,7 +87,7 @@ const SingleBlog = () => {
           </>
         )}
       </div>
-      <Footer />
+      <Footer bgColor={"#424242"} />
     </div>
   );
 };
