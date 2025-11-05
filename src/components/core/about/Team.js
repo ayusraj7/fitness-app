@@ -8,19 +8,19 @@ import img4 from "../../../asset/gym4.jpg";
 const trainer = [
   {
     img: img1,
-    name: "Bobby Dhillon",
+    name: "Yash Tyagi",
     type: "Trainer",
     desc: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sunt aspernatur odio hic delectus eveniet sed nobis architecto, possimus repellendus accusantium quidem reiciendis quod ab labore exercitationem quam repellat vel culpa reprehenderit facere. Magni iure ut perferendis modi nisi doloribus placeat iusto dolorem, deserunt atque voluptas natus fugiat cumque distinctio magnam at tenetur dignissimos corrupti error, similique quod! Aliquam, et!`,
   },
   {
     img: img2,
-    name: "Gyani Thakur",
+    name: "Puneet",
     type: "Trainer",
     desc: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sunt aspernatur odio hic delectus eveniet sed nobis architecto, possimus repellendus accusantium quidem reiciendis quod ab labore exercitationem quam repellat vel culpa reprehenderit facere. Magni iure ut perferendis modi nisi doloribus placeat iusto dolorem, deserunt atque voluptas natus fugiat cumque distinctio magnam at tenetur dignissimos corrupti error, similique quod! Aliquam, et!`,
   },
   {
     img: img3,
-    name: "Natti Dhillon",
+    name: "Sahil",
     type: "Trainer",
     desc: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sunt aspernatur odio hic delectus eveniet sed nobis architecto, possimus repellendus accusantium quidem reiciendis quod ab labore exercitationem quam repellat vel culpa reprehenderit facere. Magni iure ut perferendis modi nisi doloribus placeat iusto dolorem, deserunt atque voluptas natus fugiat cumque distinctio magnam at tenetur dignissimos corrupti error, similique quod! Aliquam, et!`,
   },
