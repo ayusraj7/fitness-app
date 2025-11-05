@@ -6,14 +6,14 @@ import TeamCard from "../about/TeamCard";
 const founder = [
   {
     img: img1,
-    name: "Ayush Rajput",
+    name: "Prajwal Mishra",
     type: "Founder",
     desc: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sunt aspernatur odio hic delectus eveniet sed nobis architecto, possimus repellendus accusantium quidem reiciendis quod ab labore exercitationem quam repellat vel culpa reprehenderit facere. Magni iure ut perferendis modi nisi doloribus placeat iusto dolorem, deserunt atque voluptas natus fugiat cumque distinctio magnam at tenetur dignissimos corrupti error, similique quod! Aliquam, et!`,
   },
   {
     img: img2,
     name: "Ayush Rajput",
-    type: "Founder",
+    type: "Co-Founder",
     desc: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sunt aspernatur odio hic delectus eveniet sed nobis architecto, possimus repellendus accusantium quidem reiciendis quod ab labore exercitationem quam repellat vel culpa reprehenderit facere. Magni iure ut perferendis modi nisi doloribus placeat iusto dolorem, deserunt atque voluptas natus fugiat cumque distinctio magnam at tenetur dignissimos corrupti error, similique quod! Aliquam, et!`,
   },
 ];
