@@ -17,7 +17,7 @@ const BlogCard = ({ data }) => {
       <img
         src={data?.img}
         alt={data?.name}
-        className="w-full h-[160px] rounded-t-md"
+        className="w-full h-[160px] object-cover rounded-t-md"
       />
       <h1 className="font-italic font-semibold text-xl text-neutral-300">
         {data?.name}

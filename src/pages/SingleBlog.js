@@ -51,7 +51,7 @@ const SingleBlog = () => {
               <img
                 src={data?.img}
                 alt=""
-                className="hover:shadow-white hover:shadow-sm h-[200px] sm:h-[360px] w-full rounded-lg"
+                className="hover:shadow-white hover:shadow-sm h-[200px] sm:h-[360px] w-full object-cover rounded-lg"
               />
               <div className=" sm:mt-5 flex justify-between w-full">
                 <h1 className="text-[#F97300] text-4xl">{data?.name}</h1>

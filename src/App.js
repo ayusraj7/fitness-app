@@ -1,5 +1,6 @@
 import "./index.css";
 import Navbar from "./components/common/Navbar";
+import ScrollToTop from "./components/common/ScrollToTop";
 import Auth from "./pages/Auth";
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className="w-screen  flex-col relative p-0 m-0">
+      <ScrollToTop />
       <Navbar />
       <div className="h-[60px]"></div>
       <Routes>

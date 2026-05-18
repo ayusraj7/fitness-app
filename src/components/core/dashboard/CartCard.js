@@ -9,7 +9,7 @@ const CartCard = ({ data }) => {
         <img
           src={data.img}
           alt={data.name}
-          className="h-[120px] sm:h-full w-full sm:w-[150px] pr-5  lg:w-[220px] rounded-l-md  "
+          className="h-[120px] sm:h-full w-full sm:w-[150px] lg:w-[220px] object-cover rounded-t-md sm:rounded-l-md sm:rounded-tr-none"
         />
         <div>
           <h1>{data.name}</h1>

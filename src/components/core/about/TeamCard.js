@@ -8,7 +8,7 @@ const TeamCard = ({ name, type, desc, img }) => {
   return (
     <div className="rounded-lg shadow-sm shadow-slate-light lg:w-[calc(100vw-25vw)] lg:h-[480px] mx-auto flex lg:flex-row flex-col lg:-ml-[2%]">
       <img
-        className="lazy w-full lg:w-1/2 h-[250px] lg:h-full object-fill"
+        className="lazy w-full lg:w-1/2 h-[250px] lg:h-full object-cover lg:rounded-l-lg"
         src={img}
         alt=""
       />

@@ -19,7 +19,7 @@ const ClassCard = ({ element }) => {
       <img
         src={element.img}
         alt=""
-        className="rounded-l-md h-[200px] md:h-[150px] w-full md:w-[150px]"
+        className="rounded-t-md md:rounded-l-md md:rounded-tr-none h-[200px] md:h-[150px] w-full md:w-[150px] object-cover"
       />
 
       <div className="flex flex-col gap-1 items-center">

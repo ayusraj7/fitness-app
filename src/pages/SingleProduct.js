@@ -50,7 +50,7 @@ const SingleProduct = () => {
           <img
             src={data?.img}
             alt=""
-            className="  h-[360px]  w-full rounded-lg"
+            className="h-[360px] w-full object-cover rounded-lg"
           />
           <h1 className="text-white  text-4xl mt-3">{data?.name}</h1>
           <div className="mt-8 flex flex-col gap-4 w-[90%]">

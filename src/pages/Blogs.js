@@ -22,7 +22,7 @@ const Blogs = () => {
           <img
             src={img}
             alt="blogs"
-            className="rounded-md h-[370px] w-[100%] sm:w-[70%]"
+            className="rounded-md h-[370px] w-[100%] sm:w-[70%] object-cover"
           />
           <p className="lg:w-[45%] text-sm lg:text-[17px] leading-6 text-zinc-400 font-inter flex items-center">
             Physical fitness and health is perhaps the main key to a sound body.

@@ -12,7 +12,7 @@ const Program = () => {
   return (
     <div className="flex gap-10 flex-col bg-gray-900 text-white pb-11">
       <div className="relative">
-        <img src={programimg} alt="" className="w-screen md:h-full h-[200px]" />
+        <img src={programimg} alt="" className="w-screen md:h-auto h-[200px] object-cover" />
         <h1 className="absolute text-4xl md:text-[60px] sm:top-[20%] top-[30%] left-[20%] sm:left-[40%] bg-white p-3 md:p-5 font-bold text-amber-400 md:leading-[60px]">
           PROGRAMS
         </h1>
@@ -22,7 +22,7 @@ const Program = () => {
           <img
             src={cardio}
             alt=""
-            className="h-[150px] w-[150px] rounded-[50%]"
+            className="h-[150px] w-[150px] object-cover rounded-[50%]"
           />
           <h1 className="text-[24px] text-[#bbd3d6] font-bold leading-7">
             CARDIO
@@ -39,7 +39,7 @@ const Program = () => {
           <img
             src={strength}
             alt=""
-            className="trapezium h-[150px] w-[150px]"
+            className="trapezium h-[150px] w-[150px] object-cover"
           />
           <h1 className="text-[24px] text-[#bbd3d6] font-bold leading-7">
             STRENGTH
@@ -56,7 +56,7 @@ const Program = () => {
           <img
             src={training2}
             alt="endurance"
-            className="w-[150px] h-[150px] triangle"
+            className="w-[150px] h-[150px] object-cover triangle"
           />
           <h1 className="text-[24px] text-[#bbd3d6] font-bold leading-7">
             ENDURANCE
@@ -72,7 +72,7 @@ const Program = () => {
           <img
             src={kickboxing}
             alt="endurance"
-            className="w-[150px] h-[150px] babel"
+            className="w-[150px] h-[150px] object-cover babel"
           />
           <h1 className="text-[24px] text-[#bbd3d6] font-bold leading-7">
             KICK BOXING
@@ -87,7 +87,7 @@ const Program = () => {
           <img
             src={weightloss}
             alt="endurance"
-            className="w-[180px] h-[180px] eclipse"
+            className="w-[180px] h-[180px] object-cover eclipse"
           />
           <h1 className="text-[24px] text-[#bbd3d6] font-bold leading-7 text-center">
             WEIGHT LOSS TRAINING

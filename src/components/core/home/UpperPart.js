@@ -23,7 +23,7 @@ const UpperPart = () => {
           <img
             src={gymimg}
             alt="bodyBuilding"
-            className="fit-cover shadow-md shadow-[#ffffff90] w-full h-[350px] md:mt-[230px] rounded-lg loading-lazy"
+            className="object-cover shadow-md shadow-[#ffffff90] w-full h-[350px] md:mt-[230px] rounded-lg loading-lazy"
           />
         </div>
       </div>

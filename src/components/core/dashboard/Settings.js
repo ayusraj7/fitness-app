@@ -76,7 +76,7 @@ const Settings = () => {
           <img
             src={userData?.additionalDetails?.img}
             alt={userData?.name}
-            className="h-[100px] w-[100px] rounded-full "
+            className="h-[100px] w-[100px] object-cover rounded-full "
           />
           <UploadPhoto setUrl={setUrl} />
           <div className=" flex gap-3 ">

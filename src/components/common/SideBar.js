@@ -19,7 +19,7 @@ const SideBar = () => {
         <img
           src={img}
           alt="The Fitness"
-          className="h-[300px] px-2 rounded-lg"
+          className="h-[300px] w-full object-cover px-2 rounded-lg"
         />
 
         <p className="text-[16px] text-white px-5">

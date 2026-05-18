@@ -75,7 +75,7 @@ const SingleClass = () => {
         <img
           src={data?.img}
           alt={data?.name}
-          className="rounded-md h-[350px] sm:w-[80%]"
+          className="rounded-md h-[350px] w-full sm:w-[80%] object-cover"
         />
         <div className="flex flex-col gap-2 mt-[20px] min-h-[300px]">
           <h1 className="text-3xl text-white font-semibold">{data?.name}</h1>

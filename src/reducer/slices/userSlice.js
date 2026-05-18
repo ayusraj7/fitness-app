@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+const safeParse = (key) => {
+  const raw = localStorage.getItem(key);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return raw;
+  }
+};
+
 const userSlice = createSlice({
   name: "User",
   initialState: {
-    token: localStorage.getItem("token")
-      ? JSON.parse(localStorage.getItem("token"))
-      : null,
+    token: safeParse("token"),
     signupData: null,
     loading: false,
-    userData: localStorage.getItem("userData")
-      ? JSON.parse(localStorage.getItem("userData"))
-      : null,
+    userData: safeParse("userData"),
     error: false,
   },
   reducers: {

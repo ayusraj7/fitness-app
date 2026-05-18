@@ -59,7 +59,7 @@ const ProductCard = ({ element }) => {
         onClick={goto}
         src={element.img}
         alt={element.name}
-        className="h-[150px] w-[240px] rounded-t-sm "
+        className="h-[150px] w-[240px] object-cover rounded-t-sm "
       />
       <h1 className="px-3 text-xl font-bold text-gray-300">{element.name}</h1>
       <p className="px-3 text-sm text-gray-500">

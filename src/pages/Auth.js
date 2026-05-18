@@ -48,7 +48,7 @@ const Auth = () => {
 
         <div className="md:w-1/2  relative group flex justify-center">
           <img
-            className="shadow-l-md w-full h-full opacity-80 object-fill rounded-r-md shadow-2xl "
+            className="shadow-l-md w-full h-full opacity-80 object-cover rounded-r-md md:rounded-l-none rounded-md shadow-2xl "
             src={gym}
             alt="gym boy"
           />

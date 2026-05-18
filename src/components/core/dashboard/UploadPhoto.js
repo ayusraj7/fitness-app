@@ -50,7 +50,7 @@ const UploadPhoto = ({ setUrl }) => {
       {file && (
         <img
           src={URL.createObjectURL(file)}
-          className="h-[250px] w-full mt-4 rounded-md"
+          className="h-[250px] w-full object-cover mt-4 rounded-md"
         />
       )}
       <div className="flex justify-between mt-5 px-3">

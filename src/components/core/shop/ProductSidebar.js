@@ -50,7 +50,7 @@ const ProductSidebar = ({ data }) => {
         <img
           src={data?.img}
           alt={data?.name}
-          className="hidden sm:block h-[250px] rounded-lg"
+          className="hidden sm:block h-[250px] w-full object-cover rounded-lg"
         />
         <div className="h-6 border-y border-gray-400 w-[90%] text-red-600 mx-auto text-center font-semibold">
           Price: <span className="text-green-500">₹{data?.price}</span>{" "}

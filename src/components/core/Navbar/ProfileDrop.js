@@ -33,7 +33,7 @@ const ProfileDrop = () => {
         <img
           src={img}
           alt=""
-          className="h-9 w-9 rounded-full bg-transparent text-white"
+          className="h-9 w-9 object-cover rounded-full bg-transparent text-white"
         />
       </div>
 
